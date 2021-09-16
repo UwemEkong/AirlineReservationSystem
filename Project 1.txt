@@ -1,0 +1,6 @@
+As a _______, I want _______ so that ___________.
+
+
+As a guest user, I want to browse flights so I can plan my trip.
+
+
