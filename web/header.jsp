@@ -25,6 +25,7 @@
                 <a href="#" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
                 <a href="/login" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                 <a href="/signup" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                <a href="contactus.jsp" class="btn bg-white text-danger border-danger navbar-btn">Contact US</a>
             </ul>
         </div>
     </nav>
