@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
+/**
+ * Connector object that connects to the MySQL database
+ * @version 1.0
+ */
 public class Connector {
 
     /**
@@ -19,9 +22,12 @@ public class Connector {
 //    }
 
     /**
-     * Connects the project file to the database
-     * @throws ClassNotFoundException Throws if class isn't found
-     * @throws SQLException
+     * Connection to the database using local host url, username, and password
+     * Username = "root"
+     * password = "software1!"
+     * Static variable Connection passed called inside method so multiple instances aren't created
+     * @throws ClassNotFoundException Throws if ClassNotFoundException
+     * @throws SQLException Throws if SQLException
      */
     public static void connect() throws ClassNotFoundException, SQLException {
 
