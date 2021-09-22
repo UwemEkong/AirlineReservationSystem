@@ -22,7 +22,7 @@ public class ConnectorTest {
      * Changed user name from "root" to user
      * Test passes because SQLException is thrown
      * @throws ClassNotFoundException Throws if ClassNotFound
-     * @throws SQLException
+     * @throws SQLException Throws if SQLException
      */
     @Test(expected = SQLException.class)
     public void connectTestSQLException() throws ClassNotFoundException, SQLException {
