@@ -1,39 +1,19 @@
 package models;
 
-public class Flight {
+public class FlightId {
 
-    private int flightID;
-    private int availableSeats;
-    private double price;
     private String departureCity;
     private String arrivalCity;
     private String departureTime;
     private String arrivalTime;
-    private int flightCapacity;
+    private int numberOfPassengers;
 
-    public int getFlightID() {
-        return flightID;
-    }
-
-    public void setFlightID(int flightID) {
-        this.flightID = flightID;
-    }
-
-
-    public int getAvailableSeats() {
-        return availableSeats;
-    }
-
-    public void setAvailableSeats(int availableSeats) {
-        this.availableSeats = availableSeats;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public FlightId(String departureCity, String arrivalCity, String departureTime, String arrivalTime, int numberOfPassengers) {
+        this.departureCity = departureCity;
+        this.arrivalCity = arrivalCity;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.numberOfPassengers = numberOfPassengers;
     }
 
     public String getDepartureCity() {
@@ -68,25 +48,22 @@ public class Flight {
         this.arrivalTime = arrivalTime;
     }
 
-    public int getFlightCapacity() {
-        return flightCapacity;
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
     }
 
-    public void setFlightCapacity(int flightCapacity) {
-        this.flightCapacity = flightCapacity;
+    public void setNumberOfPassengers(int numberOfPassengers) {
+        this.numberOfPassengers = numberOfPassengers;
     }
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "flightID=" + flightID +
-                ", availableSeats=" + availableSeats +
-                ", price=" + price +
-                ", departureCity='" + departureCity + '\'' +
+        return "FlightId{" +
+                "departureCity='" + departureCity + '\'' +
                 ", arrivalCity='" + arrivalCity + '\'' +
                 ", departureTime='" + departureTime + '\'' +
                 ", arrivalTime='" + arrivalTime + '\'' +
-                ", flightCapacity='" + flightCapacity + '\'' +
+                ", numberOfPassengers=" + numberOfPassengers +
                 '}';
     }
 }
