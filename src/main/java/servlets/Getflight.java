@@ -9,7 +9,9 @@ import models.FlightId;
 
 import java.io.IOException;
 
-
+/**
+ * This servlet handles all GET and POST requests to the '/getFlight' endpoint
+ */
 @WebServlet(urlPatterns = "/getFlight")
 public class Getflight extends HttpServlet {
     @Override
@@ -22,11 +24,10 @@ public class Getflight extends HttpServlet {
         int numPassengers = Integer.parseInt(request.getParameter("numPassengers"));
 
         FlightId flightId = new FlightId(departureCity, arrivalCity, departureTime, arrivalTime, numPassengers);
-        System.out.println("FlightID: " + flightId.toString());
         FlightDao dao = new FlightDao();
-
         Flight flight = dao.getflight(flightId);
-        System.out.println("Flight: " + flight.toString());
+
+
 
         RequestDispatcher rd = request.getRequestDispatcher("showFlight.jsp");
         request.setAttribute("flight", flight);
@@ -35,9 +36,4 @@ public class Getflight extends HttpServlet {
 
     }
 
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

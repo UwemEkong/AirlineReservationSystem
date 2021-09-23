@@ -3,32 +3,31 @@ package dao;
 import models.Flight;
 import models.FlightId;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * The FlightDao class is used to write queries to the 'Software' database. This class helps us separate our 'database logic' from our 'servlet logic'. Without this class, we would have to
+ * put all of our queries and connections to the database inside the servlet class. By using the 'dao' (data access object) design pattern, we take advantage of loose coupling.
+ *
+ * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
+ */
 public class FlightDao {
 
-    public Flight getflight(FlightId flightId)  {
+    public Flight getflight(FlightId flightId) {
         Flight f = new Flight();
 
         try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            String url = "jdbc:mysql://localhost:3306/Software";
-//            String user1 = "root";
-//            String password = "software1!";
-//            Connection connection = DriverManager.getConnection(url, user1, password);
-//
-//            Statement statement = connection.createStatement();
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
-            String arrivalTime = "9/18/2021 - 3:30PM";
-            String newRec = "SELECT * FROM Flight WHERE ArrivalTime =" + arrivalTime;
-            System.out.println("city: " + flightId.getDepartureCity());
-            String depCity = flightId.getDepartureCity();
-            ResultSet rs = statement.executeQuery("SELECT * FROM Software.Flight WHERE Software.Flight.ArrivalTime = '9/18/2021 - 3:30PM'");
-            System.out.println("Result set: " + rs);
+            String query = String.format("SELECT * FROM Software.Flight " +
+                    "WHERE Software.Flight.DepartureCity = '%s'" +
+                    "AND Software.Flight.ArrivalCity = '%s'" +
+                    "AND Software.Flight.DepartureTime = '%s'" +
+                    "AND Software.Flight.ArrivalTime = '%s'", flightId.getDepartureCity(), flightId.getArrivalCity(), flightId.getDepartureTime(), flightId.getArrivalTime());
+            ResultSet rs = statement.executeQuery(query);
+
             if (rs.next()) {
                 f.setAvailableSeats(rs.getInt("AvailableSeats"));
                 f.setFlightID(rs.getInt("flightID"));
@@ -40,10 +39,13 @@ public class FlightDao {
                 f.setFlightCapacity(rs.getInt("FlightCapacity"));
 
             }
-        }catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
 
+        if (f.getAvailableSeats() < flightId.getNumberOfPassengers()) {
+            throw new RuntimeException("Number of passengers exceeds the number of available seats on the flight");
+        }
         return f;
     }
 }

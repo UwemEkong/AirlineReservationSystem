@@ -1,5 +1,9 @@
 package models;
 
+/**
+ * This is a helper class that makes it easier to work with the user's input data when they search for available flights.
+ * The difference between this class and the 'flightID' column in the database table is that this class represents the fields taken from the form within 'browseFlights.jsp'
+ */
 public class FlightId {
 
     private String departureCity;
