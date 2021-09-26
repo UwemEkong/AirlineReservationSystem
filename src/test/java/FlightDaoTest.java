@@ -2,7 +2,11 @@ import dao.FlightDao;
 import models.Flight;
 import models.FlightId;
 import org.junit.Test;
+import servlets.GetFlight;
 import testutils.FlightUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,31 +16,50 @@ import static org.junit.Assert.assertEquals;
 public class FlightDaoTest {
 
     /**
-     * Tests if the getFlight method within FlightDao correctly queries for a flight that matches the user's input values.
+     * Tests if the getFlight method within FlightDao correctly queries for flights that match the user's input values.
      */
     @Test
     public void TestGetFlightSuccess() {
        FlightId flightId = FlightUtils.testFlightId;
-       FlightDao flightDao = new FlightDao();
+       GetFlight getFlight = new GetFlight();
 
-       Flight actual = flightDao.getflight(flightId);
-       Flight expected = FlightUtils.testFlight;
+       List<Flight> actual = getFlight.getFlights(flightId);
+       List<Flight> expected = new ArrayList();
 
-       assertEquals(actual, expected);
+       expected.add(FlightUtils.testFlight1);
+       expected.add(FlightUtils.testFlight2);
+
+       for (int i = 0; i < actual.size(); i++) {
+           assertEquals(actual.get(i), expected.get(i));
+       }
+
     }
 
     /**
-     * Tests if the getFlight method within FlightDao throws a runtime exception when the amount of seats on the flight is less
+     * Tests if the getFlight method within GetFlight throws a runtime exception when the amount of seats on the flight is less
      * than the number of passengers that the user selects
      *
      * @throws RuntimeException
      */
     @Test(expected = RuntimeException.class)
-    public void TestGetFlightFailure() {
+    public void TestGetFlightFailure_NotEnoughSeats() {
         FlightId flightId = FlightUtils.testFlightId2;
-        FlightDao flightDao = new FlightDao();
+        GetFlight getFlight = new GetFlight();
 
-        Flight actual = flightDao.getflight(flightId);
+        List<Flight> actual = getFlight.getFlights(flightId);
+    }
+
+    /**
+     * Tests if the getFlight method within Getflight throws a runtime exception if there are no flights in the database that match the user's query parameters
+     *
+     * @throws RuntimeException
+     */
+    @Test(expected = RuntimeException.class)
+    public void TestGetFlightFailure_NoMatchingFlight() {
+        FlightId flightId = FlightUtils.testFlightId3;
+        GetFlight getFlight = new GetFlight();
+
+        List<Flight> actual = getFlight.getFlights(flightId);
     }
 
 }
