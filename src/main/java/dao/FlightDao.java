@@ -6,6 +6,8 @@ import models.FlightId;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The FlightDao class is used to write queries to the 'Software' database. This class helps us separate our 'database logic' from our 'servlet logic'. Without this class, we would have to
@@ -15,8 +17,8 @@ import java.sql.Statement;
  */
 public class FlightDao {
 
-    public Flight getflight(FlightId flightId) {
-        Flight f = new Flight();
+    public List<Flight> getFlights(FlightId flightId) {
+        List<Flight> flights = new ArrayList();
 
         try {
             Connector.connect();
@@ -26,9 +28,11 @@ public class FlightDao {
                     "AND Software.Flight.ArrivalCity = '%s'" +
                     "AND Software.Flight.DepartureTime = '%s'" +
                     "AND Software.Flight.ArrivalTime = '%s'", flightId.getDepartureCity(), flightId.getArrivalCity(), flightId.getDepartureTime(), flightId.getArrivalTime());
+
             ResultSet rs = statement.executeQuery(query);
 
-            if (rs.next()) {
+            while (rs.next()) {
+                Flight f = new Flight();
                 f.setAvailableSeats(rs.getInt("AvailableSeats"));
                 f.setFlightID(rs.getInt("flightID"));
                 f.setPrice(rs.getDouble("Price"));
@@ -37,15 +41,13 @@ public class FlightDao {
                 f.setDepartureTime(rs.getString("DepartureTime"));
                 f.setArrivalTime(rs.getString("ArrivalTime"));
                 f.setFlightCapacity(rs.getInt("FlightCapacity"));
+                flights.add(f);
 
             }
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        if (f.getAvailableSeats() < flightId.getNumberOfPassengers()) {
-            throw new RuntimeException("Number of passengers exceeds the number of available seats on the flight");
-        }
-        return f;
+        return flights;
     }
 }

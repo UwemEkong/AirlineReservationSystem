@@ -1,0 +1,22 @@
+.flight-list-h1{
+    text-align: center;
+    color: #BB042B;
+    font-weight:bold;
+    font-size: 64px;
+    font-family: Roboto;
+}
+
+.book-flight-btn {
+    border-radius:15px ;
+    color:white;
+    background-color: #BB042B;
+    border: none;
+    font-family: Roboto;
+    font-size:18px;
+    font-weight:bold;
+    height:45px;
+}
+
+.book-flight-h1-img {
+    padding-left:25px;
+}
