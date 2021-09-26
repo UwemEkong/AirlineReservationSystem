@@ -48,4 +48,27 @@ public class FlightDao {
         }
         return f;
     }
+
+    //To create flights, currently available seats, price, and flight capacity are hard coded. Could be added to
+    public void createflight(FlightId flightId) {
+
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+
+            String query = String.format("INSERT INTO Software.Flight (AvailableSeats, Price, DepartureCity, ArrivalCity, DepartureTime, ArrivalTime, FlightCapacity) " +
+                    "VALUES ('%s', " +
+                    "'%s', " +
+                    "'%s', " +
+                    "'%s', " +
+                    "'%s', " +
+                    "'%s', " +
+                    "'%s')" , 150, 150, flightId.getDepartureCity(), flightId.getArrivalCity(), flightId.getDepartureTime(), flightId.getArrivalTime(), 150);
+            statement.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
 }

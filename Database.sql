@@ -4,7 +4,7 @@ DROP DATABASE IF EXISTS `Software`;
 CREATE DATABASE IF NOT EXISTS `Software`;
 USE `Software`;
 CREATE TABLE `Admin` (
-  `userID` int NOT NULL,
+  `userID` int NOT NULL AUTO_INCREMENT,
   `userName` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `salary` varchar(45) NOT NULL,
@@ -12,10 +12,10 @@ CREATE TABLE `Admin` (
   `lastName` varchar(45) NOT NULL,
   PRIMARY KEY (`userID`),
   UNIQUE KEY `userID_UNIQUE` (`userID`),
-  UNIQUE KEY `suerName_UNIQUE` (`userName`)
+  UNIQUE KEY `userName_UNIQUE` (`userName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `Flight` (
-  `flightID` int NOT NULL,
+  `flightID` int NOT NULL AUTO_INCREMENT,
   `AvailableSeats` int NOT NULL,
   `Price` double NOT NULL,
   `DepartureCity` varchar(45) NOT NULL,
@@ -38,14 +38,14 @@ CREATE TABLE `Member` (
   UNIQUE KEY `userID_UNIQUE` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `Payment` (
-  `tripID` int NOT NULL,
+  `tripID` int NOT NULL AUTO_INCREMENT,
   `paymentInfo` varchar(45) NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`tripID`),
   UNIQUE KEY `tripID_UNIQUE` (`tripID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `Trip` (
-  `tripID` int NOT NULL,
+  `tripID` int NOT NULL AUTO_INCREMENT,
   `FlightList` varchar(90) NOT NULL,
   `userID` int NOT NULL,
   PRIMARY KEY (`tripID`),
