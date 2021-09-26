@@ -11,6 +11,16 @@ public class Member {
     private String email;
     private String userName;
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName() {
+        this.fullName = firstName + " " + lastName;
+    }
+
+    private String fullName;
+
     public String getUserID() {
         return userID;
     }
