@@ -13,17 +13,23 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-<h1 class="login-header">Login</h1>
+<h1 class="login-header">Welcome Back</h1>
 
-<form class="login-form" action="${pageContext.request.contextPath}/login" method="post">
+<div class="row">
+  <div class="login-form-col" id="login-form-container">
+      <form class="login-form" action="${pageContext.request.contextPath}/login" method="post">
+            <div class="form-data">
+                <label for="userName">Username</label><br>
+                <input class="login-form-input" type="text" id="userName" name="userName"><br><br>
 
-    <label for="userName">Username:</label>
-    <input type="text" id="userName" name="userName"><br><br>
+                <label for="password">Password</label><br>
+                <input class="login-form-input" type="text" id="password" name="password"><br><br>
 
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="password"><br><br>
-
-    <button type="submit">Submit</button>
-</form>
+                <button class="login-button" type="submit">Login</button>
+                <a href="${pageContext.request.contextPath}/signup.jsp"><button class="signup-button" type="button">Sign Up</button></a>
+            </div>
+      </form>
+  </div>
+</div>
 </body>
 </html>

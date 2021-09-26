@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<c:if test="${empty sessionScope.user}" >
+<c:if test="${empty sessionScope.user.firstName}" >
     <div class="jumbotron">
         <div class="container">
             <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
@@ -36,7 +36,7 @@
     </div>
 </c:if>
 
-<c:if test="${not empty sessionScope.user}" >
+<c:if test="${not empty sessionScope.user.firstName}" >
     <div class="jumbotron">
         <div class="container">
             <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>

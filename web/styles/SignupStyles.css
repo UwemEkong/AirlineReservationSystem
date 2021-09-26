@@ -19,12 +19,12 @@
     text-align: center;
 }
 
-#login-form-container {
+#signup-form-container {
     border: solid black;
     margin-left:auto;
     margin-right:auto
 }
-.login-form-col {
+.signup-form-col {
     width:25%;
 }
 
