@@ -37,6 +37,7 @@ CREATE TABLE `Member` (
                           PRIMARY KEY (`userID`),
                           UNIQUE KEY `userID_UNIQUE` (`userID`),
                           UNIQUE KEY `userName_UNIQUE` (`userName`)
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `Payment` (
                            `tripID` int NOT NULL AUTO_INCREMENT,
@@ -54,7 +55,6 @@ CREATE TABLE `Trip` (
                         FOREIGN KEY (flightID) REFERENCES Flight(flightID),
                         FOREIGN KEY (userID) REFERENCES Member(userID))
     ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-<<<<<<< Updated upstream
 INSERT INTO Flight VALUES ('001', '150', '150.0', 'Chicago, ORD', 'Miami, MIA','9/18/2021 - 10:45AM', '9/18/2021 - 3:30PM','150');
 INSERT INTO Flight VALUES ('002', '150', '150.0', 'Chicago, MDW', 'Los Angeles, LAX','9/18/2021 - 10:45AM', '9/18/2021 - 12:50PM','150');
 INSERT INTO Flight VALUES ('003', '150', '200.0', 'Chicago, MDW', 'Las Vegas, LAS','9/20/2021 - 11:45AM', '9/20/2021 - 1:45PM','150');
@@ -63,7 +63,6 @@ INSERT INTO Flight VALUES ('005', '150', '150.0', 'Chicago, ORD', 'Miami, MIA','
 INSERT INTO Member VALUES ('1', '**** **** **** 1234', 'adamLikesFlying1!','Adam', 'Chap', 'adam@fly.com', 'AdamFly');
 INSERT INTO Member VALUES ('2', '**** **** **** 1235', 'uwemhatesFlying1!','Uwem', 'Ekong', 'uwem@fly.com', 'UwemFly');
 INSERT INTO Member VALUES ('3', '**** **** **** 4234', 'mirskyLikesFlying1!','Dr.', 'Mirsky', 'mirsky@fly.com', 'MirskyFly');
-=======
 
 ALTER TABLE Trip ADD UNIQUE `unique_index`(`flightID`, `userID`);
 
@@ -102,4 +101,7 @@ INSERT INTO Trip VALUES ('15' ,'2' , '5');
 INSERT INTO Admin VALUES ('1', 'SallyAirportLady', 'flyingAdmin!','$60,000.', 'Sally', 'Airplane');
 
 
->>>>>>> Stashed changes
+INSERT INTO Member VALUES ('001', '**** **** **** 1234', 'adamLikesFlying1!','Adam', 'Chap', 'adam@fly.com', 'AdamFly');
+INSERT INTO Member VALUES ('002', '**** **** **** 1235', 'uwemhatesFlying1!','Uwem', 'Ekong', 'uwem@fly.com', 'UwemFly');
+INSERT INTO Member VALUES ('003', '**** **** **** 4234', 'mirskyLikesFlying1!','Dr.', 'Mirsky', 'mirsky@fly.com', 'MirskyFly');
+INSERT INTO Admin VALUES ('1', 'SallyAirportLady', 'flyingAdmin!','$60,000.', 'Sally', 'Airplane');

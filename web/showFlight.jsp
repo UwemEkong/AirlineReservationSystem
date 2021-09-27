@@ -24,7 +24,12 @@
             <td>${flight.availableSeats}</td>
             <td>${flight.flightCapacity}</td>
             <td>${flight.price}</td>
-            <td><button class="book-flight-btn">Login To Book</button></td>
+            <c:if test="${empty sessionScope.user}" >
+                <td><button class="book-flight-btn">Login To Book</button></td>
+            </c:if>
+            <c:if test="${not empty sessionScope.user}" >
+                <td><button class="book-flight-btn">Book Flight</button></td>
+            </c:if>
         </tr>
 
     </c:forEach>

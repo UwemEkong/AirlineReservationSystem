@@ -39,6 +39,7 @@ public class MemberDao {
                 member.setFullName();
 
 
+                member.setFullName();
             }
         } catch (Exception e) {
 
@@ -71,6 +72,7 @@ public class MemberDao {
                     memberID.getUserName());
 
             statement.executeUpdate(query);
+
 
         } catch (Exception e) {
 
