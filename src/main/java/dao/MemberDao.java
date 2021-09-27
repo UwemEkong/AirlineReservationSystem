@@ -35,6 +35,10 @@ public class MemberDao {
             if (rs.next()) {
                 member.setFirstName(rs.getString("firstName"));
                 member.setLastName(rs.getString("lastName"));
+                member.setUserID(rs.getInt("userID"));
+                member.setFullName();
+
+
                 member.setFullName();
             }
         } catch (Exception e) {

@@ -20,3 +20,15 @@
 .book-flight-h1-img {
     padding-left:25px;
 }
+
+p1 {
+    color: red;
+    font-family: "Times New Roman";
+    font-size: 400%;
+}
+
+p2  {
+    color: blue;
+    font-family: Arial;
+    font-size: 200%;
+}
