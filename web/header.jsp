@@ -15,6 +15,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<body >
+<div class="jumbotron">
+    <div class="container">
+        <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
+
 <body>
 
 <c:if test="${empty sessionScope.user.firstName}" >
@@ -34,6 +39,11 @@
                 </ul>
             </div>
         </nav>
+
+                    <a href="contactus.jsp" class="btn bg-white text-danger border-danger navbar-btn">Contact US</a>
+                </ul>
+            </div>
+        </nav>
     </div>
 </c:if>
 
@@ -41,6 +51,9 @@
     <div class="jumbotron">
         <div class="container">
         </div>
+    </nav>
+</div>
+
 
         <nav class="navbar">
             <div class="container">
@@ -51,6 +64,10 @@
                     <a href="myflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">My Flights</a>
                     <a href="browseflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
                     <a href="aboutUs.jsp" class="btn bg-white text-danger border-danger navbar-btn">About US</a>
+                    <a href="addflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Add Flights</a>
+                    <a href="myflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">My Flights</a>
+                    <a href="browseflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
+                    <a href="contactus.jsp" class="btn bg-white text-danger border-danger navbar-btn">Contact US</a>
                     <a href="${pageContext.request.contextPath}/logout" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
                 </ul>
             </div>
