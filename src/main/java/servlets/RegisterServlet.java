@@ -40,8 +40,31 @@ public class RegisterServlet extends HttpServlet {
 
     }
 
-    private boolean verifyRegistrationInfo(MemberID memberID) {
-        return true;
+    public static boolean verifyRegistrationInfo(MemberID memberID) {
+            String password = memberID.getPassword();
+            char [] pass = password.toCharArray();
+            StringBuilder sb = new StringBuilder();
+            int digitCount = 0;
+            int upperCaseCount = 0;
+            int specialCount = 0;
+            for (char c : pass){
+                if (Character.isDigit(c)) {
+                    digitCount++;
+                }
+                else if (Character.isUpperCase(c)) {
+                    upperCaseCount++;
+                }
+               else if (String.valueOf(c).matches("[^a-zA-Z0-9]")) {
+                    specialCount++;
+                }
+            }
+
+            if (specialCount >= 1 && upperCaseCount >= 1 && digitCount >= 1) {
+                return true;
+            } else {
+                return false;
+            }
+
     }
 
     private void createNewMember(MemberID memberID) {

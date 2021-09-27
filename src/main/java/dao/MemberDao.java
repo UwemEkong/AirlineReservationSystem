@@ -20,7 +20,7 @@ public class MemberDao {
      * @param memberID - userName and password of the user attempting to login
      * @return Member
      */
-    public Member getMember(MemberID memberID) {
+    public static Member getMember(MemberID memberID) {
         Member member = new Member();
         try {
             Connector.connect();
@@ -28,7 +28,7 @@ public class MemberDao {
 
             String query = String.format("SELECT * FROM Software.Member " +
                     "WHERE Software.Member.userName = '%s'" +
-                    "AND Software.Member.password = '%s'", memberID.getUserName(), memberID.getPassword());
+                    "AND Software.Member.password = '%s';", memberID.getUserName(), memberID.getPassword());
 
             ResultSet rs = statement.executeQuery(query);
 
