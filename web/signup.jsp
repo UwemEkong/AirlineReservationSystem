@@ -17,7 +17,8 @@
 
 <div class="row">
     <div class="signup-form-col" id="signup-form-container">
-        <form class="login-form" action="${pageContext.request.contextPath}/login" method="post">
+        <div class="error-register">${message}</div>
+        <form class="login-form" action="${pageContext.request.contextPath}/register" method="post">
             <div class="form-data">
                 <label for="firstName">First Name</label><br>
                 <input class="login-form-input" type="text" id="firstName" name="firstName"><br><br>

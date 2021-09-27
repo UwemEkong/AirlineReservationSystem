@@ -17,6 +17,7 @@
 
 <div class="row">
   <div class="login-form-col" id="login-form-container">
+      <div class="error-login">${message}</div>
       <form class="login-form" action="${pageContext.request.contextPath}/login" method="post">
             <div class="form-data">
                 <label for="userName">Username</label><br>

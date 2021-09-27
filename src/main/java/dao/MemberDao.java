@@ -42,4 +42,36 @@ public class MemberDao {
         }
         return member;
     }
+
+    /**
+     * Creates a new user record and adds it to the database if the user enters the correct registration information
+     *
+     * @param memberID - userName and password of the user attempting to register
+     * @return Member
+     */
+    public void createMember(MemberID memberID) {
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+
+            String query = String.format("INSERT INTO Software.Member (paymentInfo, password, firstName, lastName, email, userName) " +
+                    "VALUES ('%s', " +
+                    "'%s', " +
+                    "'%s', " +
+                    "'%s', " +
+                    "'%s', " +
+                    "'%s')" , memberID.getPaymentInfo(),
+                    memberID.getPassword(),
+                    memberID.getFirstName(),
+                    memberID.getLastName(),
+                    memberID.getEmail(),
+                    memberID.getUserName());
+
+            statement.executeUpdate(query);
+
+
+        } catch (Exception e) {
+
+        }
+    }
 }

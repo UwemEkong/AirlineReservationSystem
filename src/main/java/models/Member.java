@@ -3,7 +3,7 @@ package models;
 import java.util.Objects;
 
 public class Member {
-    private String userID;
+    private int userID;
     private String paymentInfo;
     private String password;
     private String firstName;
@@ -21,11 +21,11 @@ public class Member {
 
     private String fullName;
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 

@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <a href="browseflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
                     <a href="${pageContext.request.contextPath}/login.jsp" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                    <a href="/signup.jsp" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                    <a href="${pageContext.request.contextPath}/signup.jsp" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
                     <a href="contactus.jsp" class="btn bg-white text-danger border-danger navbar-btn">Contact US</a>
                 </ul>
             </div>
