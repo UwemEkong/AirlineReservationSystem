@@ -1,20 +1,34 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Niraj
-  Date: 9/20/21
-  Time: 4:30
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/BookFlightsStyles.css">
 </head>
 <body>
-<h1>Contact Us</h1>
-<p>
-    <br><br><br>
+<%@include file="header.jsp" %>
 
+<p1>
+    About US
+</p1>
+
+
+<br><br><br><br>
+<p2>
+    The Client
+</p2>
+<br><br>
+
+Product Owner Dr. Mirsky
+<br>Phone #(615) 235 - 5390
+<br>
+<a href="mailto:DrMirsky@ben.edu?&subject=BenU Airlines Customer Service &body=Plz Send Help">Send E-Mail</a>
+
+<br><br><br><br><br><br>
+
+<p2>
+    The Developers
+</p2>
+<br><br><br><br>
 
 CEO Adam Chaplin
 <br>Phone #(817) 270 - 6440
@@ -47,43 +61,13 @@ Phone # (213) 335 - 2223
 <a href="mailto:nirajpatel@msn.com?&subject=BenU Airlines Customer Service &body=Plz Send Help">Send E-Mail</a>
 
 
-<br><br><hr><br><br>
 
-
-
-<h>For customer service, send us a message.</h>
-
-<br>
-<br>
-
-
-
-
-<a href="mailto:niraj321@yahoo.com?&subject=BenU Airlines Customer Service &body=Plz Send Help">Send Email Here</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br><br><br><br>
+<p2>
+    Send us a message anytime for some customer service!
+</p2>
+<br><br><br><br>
 </p>
-
-
-
 
 
 </body>

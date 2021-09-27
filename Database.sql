@@ -54,6 +54,7 @@ CREATE TABLE `Trip` (
                         FOREIGN KEY (flightID) REFERENCES Flight(flightID),
                         FOREIGN KEY (userID) REFERENCES Member(userID))
     ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+<<<<<<< Updated upstream
 INSERT INTO Flight VALUES ('001', '150', '150.0', 'Chicago, ORD', 'Miami, MIA','9/18/2021 - 10:45AM', '9/18/2021 - 3:30PM','150');
 INSERT INTO Flight VALUES ('002', '150', '150.0', 'Chicago, MDW', 'Los Angeles, LAX','9/18/2021 - 10:45AM', '9/18/2021 - 12:50PM','150');
 INSERT INTO Flight VALUES ('003', '150', '200.0', 'Chicago, MDW', 'Las Vegas, LAS','9/20/2021 - 11:45AM', '9/20/2021 - 1:45PM','150');
@@ -62,3 +63,43 @@ INSERT INTO Flight VALUES ('005', '150', '150.0', 'Chicago, ORD', 'Miami, MIA','
 INSERT INTO Member VALUES ('1', '**** **** **** 1234', 'adamLikesFlying1!','Adam', 'Chap', 'adam@fly.com', 'AdamFly');
 INSERT INTO Member VALUES ('2', '**** **** **** 1235', 'uwemhatesFlying1!','Uwem', 'Ekong', 'uwem@fly.com', 'UwemFly');
 INSERT INTO Member VALUES ('3', '**** **** **** 4234', 'mirskyLikesFlying1!','Dr.', 'Mirsky', 'mirsky@fly.com', 'MirskyFly');
+=======
+
+ALTER TABLE Trip ADD UNIQUE `unique_index`(`flightID`, `userID`);
+
+INSERT INTO Flight VALUES ('1', '147', '150.0', 'Chicago, ORD', 'Miami, MIA','9/18/2021 - 10:45AM', '9/18/2021 - 3:30PM','150');
+INSERT INTO Flight VALUES ('2', '147', '150.0', 'Chicago, MDW', 'Los Angeles, LAX','9/18/2021 - 10:45AM', '9/18/2021 - 12:50PM','150');
+INSERT INTO Flight VALUES ('3', '147', '200.0', 'Chicago, MDW', 'Las Vegas, LAS','9/20/2021 - 11:45AM', '9/20/2021 - 1:45PM','150');
+INSERT INTO Flight VALUES ('4', '147', '185.0', 'Los Angeles, LAX', 'Chicago, ORD','9/21/2021 - 7:00AM', '9/18/2021 - 11:00PM','150');
+INSERT INTO Flight VALUES ('5', '147', '150.0', 'Chicago, ORD', 'Miami, MIA','9/18/2021 - 10:45AM', '9/18/2021 - 3:30PM','200');
+
+INSERT INTO Member VALUES ('1', '**** **** **** 1234', 'adamLikesFlying1!','Adam', 'Chap', 'adam@fly.com', 'AdamFly');
+INSERT INTO Member VALUES ('2', '**** **** **** 1235', 'uwemhatesFlying1!','Uwem', 'Ekong', 'uwem@fly.com', 'UwemFly');
+INSERT INTO Member VALUES ('3', '**** **** **** 4234', 'mirskyLikesFlying1!','Dr.', 'Mirsky', 'mirsky@fly.com', 'MirskyFly');
+INSERT INTO Member VALUES ('4', '**** **** **** 7432', 'nirajLikesFlying1!','Niraj', 'Patel', 'niraj@fly.com', 'NirajFly');
+INSERT INTO Member VALUES ('5', '**** **** **** 5497', 'gilhatesFlying1!','Gil', 'Gurkirat', 'gil@fly.com', 'GilFly');
+
+INSERT INTO Trip VALUES ('1' , '1' , '1');
+INSERT INTO Trip VALUES ('2' ,'2' , '1');
+INSERT INTO Trip VALUES ('3' ,'3' , '1');
+
+INSERT INTO Trip VALUES ('4' ,'2' , '2');
+INSERT INTO Trip VALUES ('5' ,'3' , '2');
+INSERT INTO Trip VALUES ('6' ,'4' , '2');
+
+INSERT INTO Trip VALUES ('7' ,'3' , '3');
+INSERT INTO Trip VALUES ('8' ,'4' , '3');
+INSERT INTO Trip VALUES ('9' ,'5' , '3');
+
+INSERT INTO Trip VALUES ('10' ,'4' , '4');
+INSERT INTO Trip VALUES ('11' ,'5' , '4');
+INSERT INTO Trip VALUES ('12' ,'1' , '4');
+
+INSERT INTO Trip VALUES ('13' ,'5' , '5');
+INSERT INTO Trip VALUES ('14' ,'1' , '5');
+INSERT INTO Trip VALUES ('15' ,'2' , '5');
+
+INSERT INTO Admin VALUES ('1', 'SallyAirportLady', 'flyingAdmin!','$60,000.', 'Sally', 'Airplane');
+
+
+>>>>>>> Stashed changes

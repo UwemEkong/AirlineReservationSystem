@@ -73,4 +73,33 @@ public class FlightDao {
         }
 
     }
+
+    // this gets a list of all the available flights
+    public List<Flight> getAllAvailableFlights() {
+        List<Flight> flights = new ArrayList();
+
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+            String query = String.format("SELECT * FROM Software.Flight WHERE AvailableSeats > 0");
+
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                Flight f = new Flight();
+                f.setAvailableSeats(rs.getInt("AvailableSeats"));
+                f.setFlightID(rs.getInt("flightID"));
+                f.setPrice(rs.getDouble("Price"));
+                f.setDepartureCity(rs.getString("DepartureCity"));
+                f.setArrivalCity(rs.getString("ArrivalCity"));
+                f.setDepartureTime(rs.getString("DepartureTime"));
+                f.setArrivalTime(rs.getString("ArrivalTime"));
+                f.setFlightCapacity(rs.getInt("FlightCapacity"));
+                flights.add(f);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return flights;
+    }
 }
