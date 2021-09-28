@@ -78,4 +78,32 @@ public class MemberDao {
 
         }
     }
+
+    /**
+     * Searches the database for a specific member, given a username
+     *
+     * @param username - userName of the member attempting to register
+     * @return Member
+     */
+    public Member findMemberByUsername(String username) {
+        Member member = new Member();
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+
+            String query = String.format("SELECT * FROM Software.Member " +
+                    "WHERE Software.Member.userName = '%s'", username);
+
+            ResultSet rs = statement.executeQuery(query);
+
+            if (rs.next()) {
+                member.setFirstName(rs.getString("firstName"));
+                member.setLastName(rs.getString("lastName"));
+                member.setUserName(rs.getString("userName"));
+            }
+        } catch (Exception e) {
+
+        }
+        return member;
+    }
 }

@@ -4,6 +4,7 @@ import dao.MemberDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import models.Member;
 import models.MemberID;
 
 import java.io.IOException;
@@ -40,8 +41,30 @@ public class RegisterServlet extends HttpServlet {
 
     }
 
-    private boolean verifyRegistrationInfo(MemberID memberID) {
-        return true;
+    public boolean verifyRegistrationInfo(MemberID memberID) {
+
+        return !checkInvalidPasword(memberID) && !userExists(memberID.getUserName()) && !checkMissingData(memberID);
+    }
+    public boolean checkInvalidPasword(MemberID memberID) {
+        return memberID.getPassword().length() < 8;
+    }
+
+    public boolean userExists(String username) {
+        MemberDao memberDao = new MemberDao();
+        Member member = memberDao.findMemberByUsername(username);
+
+        if (member.getFirstName() != null || member.getLastName() != null || member.getUserName() != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkMissingData(MemberID memberID) {
+       if (memberID.getUserName() == null || memberID.getFirstName() == null || memberID.getLastName() == null
+       || memberID.getPassword() == null || memberID.getEmail() == null || memberID.getPaymentInfo() == null) {
+           return true;
+       }
+       return false;
     }
 
     private void createNewMember(MemberID memberID) {
