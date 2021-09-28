@@ -21,13 +21,18 @@ public class TM1_showMyBookedTrips extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int userID = Integer.parseInt(request.getParameter("userID"));
-        TripDao dao = new TripDao();
-        List<Flight> flights = dao.getAllTrips(userID);
+        List<Flight> flights = listFlights(userID);
 
         RequestDispatcher rd = request.getRequestDispatcher("tmShowMyBookedTrips.jsp");
         request.setAttribute("flights", flights);
 
         rd.forward(request, response);
 
+    }
+
+    public static List<Flight> listFlights(int userID){
+        TripDao dao = new TripDao();
+        List<Flight> flights = dao.getAllTrips(userID);
+        return flights;
     }
 }

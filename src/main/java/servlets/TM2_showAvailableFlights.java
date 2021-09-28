@@ -20,13 +20,17 @@ public class TM2_showAvailableFlights extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        FlightDao dao = new FlightDao();
-        List<Flight> flights = dao.getAllAvailableFlights();
+        List<Flight> flights = listFlights();
 
         RequestDispatcher rd = request.getRequestDispatcher("tmShowAvailableFlights.jsp");
         request.setAttribute("flights", flights);
 
         rd.forward(request, response);
 
+    }
+    
+    public static List<Flight> listFlights(){
+        FlightDao dao = new FlightDao();
+        return dao.getAllAvailableFlights();
     }
 }

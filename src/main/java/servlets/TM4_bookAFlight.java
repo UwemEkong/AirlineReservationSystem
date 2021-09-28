@@ -27,10 +27,14 @@ public class TM4_bookAFlight extends HttpServlet {
         int userID = Integer.parseInt(request.getParameter("userID"));
 
         TripId tripId = new TripId(flightID, userID);
-        tripDao.createTrip(tripId);
+        createtrip(tripId,tripDao);
 
         RequestDispatcher rd = request.getRequestDispatcher("tmHome.jsp");
         rd.forward(request, response);
 
+    }
+
+    public static void createtrip(TripId tripId, TripDao tripDao){
+        tripDao.createTrip(tripId);
     }
 }
