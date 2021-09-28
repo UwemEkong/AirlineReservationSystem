@@ -27,10 +27,14 @@ public class TM3_cancelAFlight extends HttpServlet {
         int userID = Integer.parseInt(request.getParameter("userID"));
 
         TripId tripId = new TripId(flightID, userID);
-        tripDao.deleteTrip(tripId);
+        deleteTrip(tripId,tripDao);
 
         RequestDispatcher rd = request.getRequestDispatcher("tmHome.jsp");
         rd.forward(request, response);
 
+    }
+
+    public static void deleteTrip(TripId tripId, TripDao tripDao){
+        tripDao.deleteTrip(tripId);
     }
 }
