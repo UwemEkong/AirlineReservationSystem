@@ -28,12 +28,16 @@ public class AddFlight extends HttpServlet {
         int numPassengers = Integer.parseInt(request.getParameter("numPassengers"));
 
         FlightId flightId = new FlightId(departureCity, arrivalCity, departureTime, arrivalTime, numPassengers);
-        FlightDao dao = new FlightDao();
-        dao.createflight(flightId);
+        createTheFlight(flightId);
 
         RequestDispatcher rd = request.getRequestDispatcher("addflights.jsp");
         rd.forward(request, response);
 
+    }
+
+    public static void createTheFlight(FlightId flightId){
+        FlightDao dao = new FlightDao();
+        dao.createflight(flightId);
     }
 
 }

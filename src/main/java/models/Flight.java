@@ -115,6 +115,6 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return flightID == flight.flightID && availableSeats == flight.availableSeats && Double.compare(flight.price, price) == 0 && flightCapacity == flight.flightCapacity && departureCity.equals(flight.departureCity) && arrivalCity.equals(flight.arrivalCity) && departureTime.equals(flight.departureTime) && arrivalTime.equals(flight.arrivalTime);
+        return  Double.compare(flight.price, price) == 0  && departureCity.equals(flight.departureCity) && arrivalCity.equals(flight.arrivalCity) && departureTime.equals(flight.departureTime) && arrivalTime.equals(flight.arrivalTime);
     }
 }

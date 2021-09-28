@@ -16,7 +16,7 @@ public class RegisterServletTest {
         MemberID memberID = MemberUtils.invalidMemberID;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.checkInvalidPasword(memberID);
+        boolean actual = servlet.checkInvalidPassword(memberID);
         boolean expected = true;
 
         assertEquals(actual, expected);
@@ -30,7 +30,7 @@ public class RegisterServletTest {
         MemberID memberID = MemberUtils.validMemberID;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.checkInvalidPasword(memberID);
+        boolean actual = servlet.checkInvalidPassword(memberID);
         boolean expected = false;
 
         assertEquals(actual, expected);

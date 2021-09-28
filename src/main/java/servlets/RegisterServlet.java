@@ -41,11 +41,7 @@ public class RegisterServlet extends HttpServlet {
 
     }
 
-    public boolean verifyRegistrationInfo(MemberID memberID) {
-
-        return !checkInvalidPasword(memberID) && !userExists(memberID.getUserName()) && !checkMissingData(memberID);
-    }
-    public boolean checkInvalidPasword(MemberID memberID) {
+    public boolean checkInvalidPassword(MemberID memberID) {
         return memberID.getPassword().length() < 8;
     }
 
@@ -60,15 +56,42 @@ public class RegisterServlet extends HttpServlet {
     }
 
     public boolean checkMissingData(MemberID memberID) {
-       if (memberID.getUserName() == null || memberID.getFirstName() == null || memberID.getLastName() == null
-       || memberID.getPassword() == null || memberID.getEmail() == null || memberID.getPaymentInfo() == null) {
-           return true;
-       }
-       return false;
+        if (memberID.getUserName() == null || memberID.getFirstName() == null || memberID.getLastName() == null
+                || memberID.getPassword() == null || memberID.getEmail() == null || memberID.getPaymentInfo() == null) {
+            return true;
+        }
+        return false;
+    }
+        public  boolean verifyRegistrationInfo (MemberID memberID){
+
+
+            String password = memberID.getPassword();
+            char[] pass = password.toCharArray();
+            StringBuilder sb = new StringBuilder();
+            int digitCount = 0;
+            int upperCaseCount = 0;
+            int specialCount = 0;
+            for (char c : pass) {
+                if (Character.isDigit(c)) {
+                    digitCount++;
+                } else if (Character.isUpperCase(c)) {
+                    upperCaseCount++;
+                } else if (String.valueOf(c).matches("[^a-zA-Z0-9]")) {
+                    specialCount++;
+                }
+            }
+
+            if (!checkInvalidPassword(memberID) && !userExists(memberID.getUserName()) && !checkMissingData(memberID) && specialCount >= 1 && upperCaseCount >= 1 && digitCount >= 1) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        private void createNewMember (MemberID memberID){
+            MemberDao memberDao = new MemberDao();
+            memberDao.createMember(memberID);
+        }
     }
 
-    private void createNewMember(MemberID memberID) {
-        MemberDao memberDao = new MemberDao();
-        memberDao.createMember(memberID);
-    }
-}
