@@ -37,7 +37,7 @@ public class FlightUtils {
 
     public static final Flight testFlight1 = new Flight(
             1,
-            150,
+            147,
             150.0,
             "Chicago, ORD",
             "Miami, MIA",
@@ -47,7 +47,7 @@ public class FlightUtils {
 
     public static final Flight testFlight2 = new Flight(
             5,
-            150,
+            147,
             150.0,
             "Chicago, ORD",
             "Miami, MIA",

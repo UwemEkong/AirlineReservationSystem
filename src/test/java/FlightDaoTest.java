@@ -24,13 +24,10 @@ public class FlightDaoTest {
        GetFlight getFlight = new GetFlight();
 
        List<Flight> actual = getFlight.getFlights(flightId);
-       List<Flight> expected = new ArrayList();
-
-       expected.add(FlightUtils.testFlight1);
-       expected.add(FlightUtils.testFlight2);
+       Flight expected = FlightUtils.testFlight1;
 
        for (int i = 0; i < actual.size(); i++) {
-           assertEquals(actual.get(i), expected.get(i));
+           assertEquals(actual.get(i), expected);
        }
 
     }
