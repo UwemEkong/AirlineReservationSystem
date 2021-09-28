@@ -38,7 +38,8 @@ public class LoginServlet extends HttpServlet {
         rd.forward(request, response);
     }
 
-    private boolean memberIsValid(Member member) {
+    public boolean memberIsValid(Member member) {
+
         return member != null && member.getFirstName() != null;
     }
 

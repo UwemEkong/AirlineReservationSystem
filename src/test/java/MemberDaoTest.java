@@ -10,9 +10,11 @@ import java.sql.*;
  */
 public class MemberDaoTest {
 
-
+    /**
+     * Test that shows if a member is found in query
+     */
     @Test()
-    public void getMemberTest() throws ClassNotFoundException, SQLException {
+    public void getMemberTest() {
 
 
         MemberID test1 = new MemberID("AdamFly", "adamLikesFlying1!");
@@ -29,8 +31,11 @@ public class MemberDaoTest {
 
     }
 
+    /**
+     * Test to make sure no user returns from a faulty query
+     */
     @Test()
-    public void getMemberTestFail() throws ClassNotFoundException, SQLException {
+    public void getMemberTestFail()  {
 
 
         MemberID test1 = new MemberID("Dad", "run1!!!!");
