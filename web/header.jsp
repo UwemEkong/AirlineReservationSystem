@@ -48,8 +48,13 @@
                     Welcome Back <b>${user.fullName}</b>
                     <a href="tmHome.jsp" class="btn bg-white text-danger border-danger navbar-btn">Trip Management</a>
                     <a href="addflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Add Flights</a>
-                    <a href="tmShowMyBookedTrips.jsp" class="btn bg-white text-danger border-danger navbar-btn">My Flights</a>
+
+                    <form action="${pageContext.request.contextPath}/showMyBookedTrips" method="get" style="display: inline" >
+                        <input type="hidden" name="userID" value="${user.userID}" />
+                        <td><button type="submit" class="btn bg-white text-danger border-danger navbar-btn" >My Flights</button></td>
+                    </form>
                     <a href="browseflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
+
                     <a href="aboutUs.jsp" class="btn bg-white text-danger border-danger navbar-btn">About US</a>
                     <a href="${pageContext.request.contextPath}/logout" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
                 </ul>
