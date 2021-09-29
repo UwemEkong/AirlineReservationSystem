@@ -27,7 +27,7 @@ public class GetFlight extends HttpServlet {
         FlightId flightId = new FlightId(departureCity, arrivalCity, departureTime, arrivalTime, numPassengers);
         List<Flight> flights = getFlights(flightId);
 
-        RequestDispatcher rd = request.getRequestDispatcher("showFlight.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("showFlight1.jsp");
         request.setAttribute("flights", flights);
 
         rd.forward(request, response);

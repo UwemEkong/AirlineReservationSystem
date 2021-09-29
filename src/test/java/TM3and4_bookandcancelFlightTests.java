@@ -30,12 +30,14 @@ public class TM3and4_bookandcancelFlightTests {
 
         System.out.println(original_size);
 
-        servlets.TM4_bookAFlight.createtrip(tripId, tripDao);
+        servlets.TM4_bookAFlight.addTrip(tripId, tripDao);
 
         trips = tripDao.getAllTrips(1);
         int new_size = trips.size();
         System.out.println(new_size);
         assertEquals(new_size, original_size+1);
+
+        servlets.TM3_cancelAFlight.deleteTrip(tripId, tripDao);
 
     }
 
@@ -48,6 +50,7 @@ public class TM3and4_bookandcancelFlightTests {
         TripDao tripDao = new TripDao();
         TripId tripId = new TripId(1,1);
 
+        servlets.TM4_bookAFlight.addTrip(tripId, tripDao);
         List<Flight> trips = tripDao.getAllTrips(1);
 
         int original_size = trips.size();
