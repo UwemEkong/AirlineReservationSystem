@@ -49,13 +49,19 @@
                     <a href="tmHome.jsp" class="btn bg-white text-danger border-danger navbar-btn">Trip Management</a>
                     <a href="addflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Add Flights</a>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     <a href="myflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">My Flights</a>
 =======
+=======
+>>>>>>> Stashed changes
 
                     <form action="${pageContext.request.contextPath}/showMyBookedTrips" method="get" style="display: inline" >
                         <input type="hidden" name="userID" value="${user.userID}" />
                         <td><button type="submit" class="btn bg-white text-danger border-danger navbar-btn" >My Flights</button></td>
                     </form>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     <a href="browseflights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
 

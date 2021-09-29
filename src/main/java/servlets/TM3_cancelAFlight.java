@@ -31,5 +31,12 @@ public class TM3_cancelAFlight extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
+<<<<<<< Updated upstream
+=======
+    }
+
+    public static void deleteTrip(TripId tripId, TripDao tripDao){
+        tripDao.deleteTrip(tripId);
+>>>>>>> Stashed changes
     }
 }

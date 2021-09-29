@@ -29,7 +29,11 @@ public class TM4_bookAFlight extends HttpServlet {
 
         TripId tripId = new TripId(flightID, userID);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         tripDao.createTrip(tripId);
+=======
+        addTrip(tripId,tripDao);
+>>>>>>> Stashed changes
 =======
         addTrip(tripId,tripDao);
 >>>>>>> Stashed changes
