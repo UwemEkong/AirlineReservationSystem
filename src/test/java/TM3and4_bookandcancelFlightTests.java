@@ -39,12 +39,7 @@ public class TM3and4_bookandcancelFlightTests {
 
         servlets.TM3_cancelAFlight.deleteTrip(tripId, tripDao);
 
-<<<<<<< Updated upstream
 
-
-
-=======
->>>>>>> Stashed changes
     }
 
     /**
