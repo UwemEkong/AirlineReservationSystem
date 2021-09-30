@@ -194,16 +194,9 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-
-        if (userID.equals("")) {
-            RequestDispatcher rd = request.getRequestDispatcher("showBrowseResultsGuest.jsp");
-            request.setAttribute("flights", resultFlights);
-            rd.forward(request, response);
-        } else {
-            RequestDispatcher rd = request.getRequestDispatcher("showBrowseResultsMember.jsp");
-            request.setAttribute("flights", resultFlights);
-            rd.forward(request, response);
-        }
+        RequestDispatcher rd = request.getRequestDispatcher("showBrowseResults.jsp");
+        request.setAttribute("flights", resultFlights);
+        rd.forward(request, response);
 
 
     }
