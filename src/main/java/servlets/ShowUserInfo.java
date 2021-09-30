@@ -16,7 +16,7 @@ import java.util.List;
  * This servlet handles all GET requests to the '/showUserInfo' endpoint
  */
 @WebServlet(urlPatterns = "/showUserInfo")
-public class ShowUserInfo extends HttpServlet {
+public class showUserInfo extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
