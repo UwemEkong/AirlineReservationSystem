@@ -36,7 +36,8 @@
                 <td><button class="book-flight-btn">Delete Flight (Only Admin!)</button></td>
             </form>
         </tr>
-
+<!--
+        test-->>
     </c:forEach>
 </table>
 </body>
