@@ -139,4 +139,33 @@ public class MemberDao {
         return members;
     }
 
+    public void updateMember(MemberID memberID, int userid) {
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+
+            String query = String.format("UPDATE Software.Member " +
+                            "SET paymentInfo = '%s'" +
+                            ", password = '%s'" +
+                            ", firstName = '%s'" +
+                            ", lastName = '%s'" +
+                            ", email = '%s'" +
+                            ", userName = '%s' " +
+                            "WHERE userID = '%s'"
+                             , memberID.getPaymentInfo(),
+                    memberID.getPassword(),
+                    memberID.getFirstName(),
+                    memberID.getLastName(),
+                    memberID.getEmail(),
+                    memberID.getUserName(),
+                    userid);
+
+            statement.executeUpdate(query);
+
+
+        } catch (Exception e) {
+
+        }
+    }
+
 }
