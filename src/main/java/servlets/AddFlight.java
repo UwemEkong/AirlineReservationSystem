@@ -7,8 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Flight;
-import models.FlightId;
+import models.FlightID;
 
 import java.io.IOException;
 
@@ -25,19 +24,18 @@ public class AddFlight extends HttpServlet {
         String arrivalCity = request.getParameter("arrivalCity");
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
-        int numPassengers = Integer.parseInt(request.getParameter("numPassengers"));
 
-        FlightId flightId = new FlightId(departureCity, arrivalCity, departureTime, arrivalTime, numPassengers);
+        FlightID flightId = new FlightID(departureCity, arrivalCity, departureTime, arrivalTime);
         createTheFlight(flightId);
 
-        RequestDispatcher rd = request.getRequestDispatcher("addflights.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
 
     }
 
-    public static void createTheFlight(FlightId flightId){
+    public static void createTheFlight(FlightID flightId){
         FlightDao dao = new FlightDao();
-        dao.createflight(flightId);
+        dao.createFlight(flightId);
     }
 
 }

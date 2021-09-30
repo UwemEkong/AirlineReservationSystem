@@ -1,7 +1,7 @@
 package dao;
 
 import models.Flight;
-import models.FlightId;
+import models.FlightID;
 
 
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class FlightDao {
 
-    public List<Flight> getFlights(FlightId flightId) {
+    public List<Flight> getFlights(FlightID flightId) {
         List<Flight> flights = new ArrayList();
 
         try {
@@ -52,7 +52,7 @@ public class FlightDao {
     }
 
     //To create flights, currently available seats, price, and flight capacity are hard coded. Could be added to
-    public void createflight(FlightId flightId) {
+    public void createFlight(FlightID flightId) {
 
         try {
             Connector.connect();
@@ -75,7 +75,9 @@ public class FlightDao {
     }
 
     // Will delete the flight with the given id
-    public void deleteflight(int id) {
+
+    public void deleteFlight(int id) {
+
 
         try {
             Connector.connect();
@@ -121,8 +123,7 @@ public class FlightDao {
                 flights.add(f);
             }
         } catch (Exception e) {
-            System.out.println(e);
-        }
+            System.out.println(e);        }
         return flights;
     }
 

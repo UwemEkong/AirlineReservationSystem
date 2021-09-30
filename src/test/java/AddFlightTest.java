@@ -1,11 +1,9 @@
 import models.Flight;
-import models.FlightId;
+import models.FlightID;
 import org.junit.Test;
 import servlets.AddFlight;
 import servlets.GetFlight;
 import testutils.FlightUtils;
-
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +15,7 @@ public class AddFlightTest {
     @Test
     public void TestAddFlight() {
 
-        FlightId flightId = FlightUtils.testFlightId;
+        FlightID flightId = FlightUtils.testFlightId;
 
         GetFlight getFlight = new GetFlight();
 
