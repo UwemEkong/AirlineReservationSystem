@@ -36,6 +36,12 @@
                 <td><button class="book-flight-btn">Delete Flight (Only Admin!)</button></td>
             </form>
 
+            <!-- if is admin -->
+            <form action="${pageContext.request.contextPath}/deleteFlight" method="post">
+                <input type="hidden" name="flightID1" value="${flight.flightID}" />
+                <td><button class="book-flight-btn">Delete Flight (Only Admin!)</button></td>
+            </form>
+
         </tr>
 
     </c:forEach>

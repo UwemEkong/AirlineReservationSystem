@@ -75,7 +75,9 @@ public class FlightDao {
     }
 
     // Will delete the flight with the given id
+
     public void deleteFlight(int id) {
+
 
         try {
             Connector.connect();
