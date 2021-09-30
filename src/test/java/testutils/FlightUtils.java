@@ -1,17 +1,14 @@
 package testutils;
 
 import models.Flight;
-import models.FlightId;
-
-import java.util.ArrayList;
-import java.util.List;
+import models.FlightID;
 
 /**
  * Utility class used for storing dummy data for JUnit testing. Without this class, we would have to keep recreating testing data whenever we want to write a new test case.
  */
 public class FlightUtils {
 
-    public static final FlightId testFlightId = new FlightId(
+    public static final FlightID testFlightId = new FlightID(
             "Chicago, ORD",
             "Miami, MIA",
             "9/18/2021 - 10:45AM",
@@ -19,7 +16,7 @@ public class FlightUtils {
             1
     );
 
-    public static final FlightId testFlightId2 = new FlightId(
+    public static final FlightID testFlightId2 = new FlightID(
             "Chicago, ORD",
             "Miami, MIA",
             "9/18/2021 - 10:45AM",
@@ -27,7 +24,7 @@ public class FlightUtils {
             300
     );
 
-    public static final FlightId testFlightId3 = new FlightId(
+    public static final FlightID testFlightId3 = new FlightID(
             "Dallas, DFW",
             "Miami, MIA",
             "9/18/2021 - 10:45AM",

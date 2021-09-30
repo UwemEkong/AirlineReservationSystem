@@ -1,10 +1,14 @@
 package dao;
 
+import models.Flight;
 import models.Member;
 import models.MemberID;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * The MemberDao class is used to write queries to the 'Software' database. This class helps us separate our 'database logic' from our 'servlet logic'. Without this class, we would have to
@@ -106,4 +110,33 @@ public class MemberDao {
         }
         return member;
     }
+
+    // Gets a list of all members
+    public List<Member> getAllMembers() {
+        List<Member> members = new ArrayList();
+
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+            String query = String.format("SELECT * FROM Software.Member");
+
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                Member m = new Member();
+                m.setUserID(rs.getInt("userID"));
+                m.setFirstName(rs.getString("firstName"));
+                m.setLastName(rs.getString("lastName"));
+                m.setPaymentInfo(rs.getString("paymentInfo"));
+                m.setUserName(rs.getString("userName"));
+                m.setPassword(rs.getString("password"));
+                m.setEmail(rs.getString("email"));
+                members.add(m);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return members;
+    }
+
 }

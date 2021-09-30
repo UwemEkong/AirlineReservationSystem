@@ -31,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
             createNewMember(memberID);
             destination = "login.jsp";
         } else {
-            destination = "signup.jsp";
+            destination = "signUp.jsp";
             String message = "Incorrect username/password";
             request.setAttribute("message", message);
         }

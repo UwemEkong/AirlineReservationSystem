@@ -7,14 +7,8 @@
 <body>
 <%@include file="header.jsp" %>
 
-<p1>
-    Your Search Results
-</p1>
+<p1>Admin Privilege: Delete Flight</p1>
 <br><br><br><br>
-<p2>
-    These are all the flights found according to your search.
-    <br> Booking a flight you have already booked will have no effect.
-</p2>
 
 <br><br><br><br>
 <table class="table">
@@ -36,9 +30,10 @@
             <td>${flight.price}</td>
 
 
-            <form action="${pageContext.request.contextPath}/login.jsp" method="get">
-                <td><button type="submit" class="book-flight-btn" >Login To Book</button></td>
-
+            <!-- if is admin -->
+            <form action="${pageContext.request.contextPath}/deleteFlight" method="post">
+                <input type="hidden" name="flightID1" value="${flight.flightID}" />
+                <td><button class="book-flight-btn">Delete Flight (Only Admin!)</button></td>
             </form>
 
         </tr>

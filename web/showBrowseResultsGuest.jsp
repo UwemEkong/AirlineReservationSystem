@@ -8,12 +8,12 @@
 <%@include file="header.jsp" %>
 
 <p1>
-    Available Flights
+    Your Search Results
 </p1>
 <br><br><br><br>
 <p2>
-    These are all the flights that are available for booking.
-    <br> Booking a flight you have already booked will have no effect.
+    These are all the flights found according to your search.
+    <br> You must be logged in to book a flight.
 </p2>
 
 <br><br><br><br>
@@ -36,10 +36,9 @@
             <td>${flight.price}</td>
 
 
-            <form action="${pageContext.request.contextPath}/bookAFlight" method="post">
-                <input type="hidden" name="flightID1" value="${flight.flightID}" />
-                <input type="hidden" name="userID" value="${user.userID}" />
-                <td><button class="book-flight-btn">Book Flight</button></td>
+            <form action="${pageContext.request.contextPath}/login.jsp" method="get">
+                <td><button type="submit" class="book-flight-btn" >Login To Book</button></td>
+
             </form>
 
         </tr>

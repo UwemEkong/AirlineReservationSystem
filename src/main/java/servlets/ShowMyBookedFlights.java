@@ -1,6 +1,6 @@
 package servlets;
 
-import dao.FlightDao;
+import dao.TripDao;
 import models.Flight;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -12,25 +12,27 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * This servlet handles all GET requests to the '/showAvailableFlights' endpoint
+ * This servlet handles all GET requests to the '/showMyBookedFlights' endpoint
  */
-@WebServlet(urlPatterns = "/showAvailableFlights")
-public class TM2_showAvailableFlights extends HttpServlet {
+@WebServlet(urlPatterns = "/showMyBookedFlights")
+public class ShowMyBookedFlights extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Flight> flights = listFlights();
+        int userID = Integer.parseInt(request.getParameter("userID"));
+        List<Flight> flights = listFlights(userID);
 
-        RequestDispatcher rd = request.getRequestDispatcher("tmShowAvailableFlights.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("showMyBookedFlights.jsp");
         request.setAttribute("flights", flights);
 
         rd.forward(request, response);
 
     }
-    
-    public static List<Flight> listFlights(){
-        FlightDao dao = new FlightDao();
-        return dao.getAllAvailableFlights();
+
+    public static List<Flight> listFlights(int userID){
+        TripDao dao = new TripDao();
+        List<Flight> flights = dao.getAllTrips(userID);
+        return flights;
     }
 }

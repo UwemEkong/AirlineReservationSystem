@@ -36,7 +36,7 @@
             <td>${flight.price}</td>
 
 
-            <form action="${pageContext.request.contextPath}/bookAFlight" method="post">
+            <form action="${pageContext.request.contextPath}/bookFlight" method="post">
                 <input type="hidden" name="flightID1" value="${flight.flightID}" />
                 <input type="hidden" name="userID" value="${user.userID}" />
                 <td><button class="book-flight-btn">Book Flight</button></td>

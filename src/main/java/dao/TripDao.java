@@ -1,7 +1,7 @@
 package dao;
 
 import models.Flight;
-import models.TripId;
+import models.TripID;
 
 
 import java.sql.ResultSet;
@@ -76,28 +76,38 @@ public class TripDao {
      * @return updateSuccess the success of the 2 query updates (adding a trip, decrementing available seats)
      * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
      */
-    public int addTrip(TripId tripId) {
+    public int addTrip(TripID tripId) {
 
         int updateSuccess = 0;
+        int availableSeats;
 
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
 
-            String query = String.format("INSERT INTO Software.Trip (flightID, userID) " +
-                    "VALUES ('%s', " +
-                    "'%s')", tripId.getFlightID(), tripId.getUserID());
-            updateSuccess += statement.executeUpdate(query);
+            String query = String.format("SELECT * FROM Software.Flight WHERE Software.Flight.flightID = " + tripId.getFlightID());
+            ResultSet rs = statement.executeQuery(query);
+            rs.next();
+            availableSeats = rs.getInt(2);
+
+            if (availableSeats > 0) {
+                query = String.format("INSERT INTO Software.Trip (flightID, userID) " +
+                        "VALUES ('%s', " +
+                        "'%s')", tripId.getFlightID(), tripId.getUserID());
+                updateSuccess += statement.executeUpdate(query);
+            }
 
             if (updateSuccess == 1) {
                 query = String.format("UPDATE Software.Flight set AvailableSeats = AvailableSeats - 1 WHERE flightID = " + tripId.getFlightID());
                 updateSuccess += statement.executeUpdate(query);
-            }
 
+            }
 
         } catch (Exception e) {
             System.out.println(e);
+
         }
+
 
         return updateSuccess;
     }
@@ -109,7 +119,7 @@ public class TripDao {
      * @return updateSuccess the success of the 2 query updates (deleting a trip, incrementing available seats)
      * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
      */
-    public int deleteTrip(TripId tripId) {
+    public int deleteTrip(TripID tripId) {
 
         int updateSuccess = 0;
 

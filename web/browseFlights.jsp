@@ -7,12 +7,14 @@
 <body>
 <%@include file="header.jsp" %>
 
-<p1>
-    Browse All Available Flights
-</p1>
+<p1>Browse Flights</p1>
 <br><br><br><br>
-
-<form action="${pageContext.request.contextPath}/searchAvailableFlights" method="get">
+<p2>
+    You may browse flights here.
+    <br> Please enter query exactly as shown in the example.
+</p2>
+<br><br><br><br>
+<form action="${pageContext.request.contextPath}/browseFlights" method="get">
 
     <label for="departureCity">Departure City: (EX: Chicago, ORD) </label>
     <input type="text" id="departureCity" name="departureCity"><br><br><br>
@@ -26,8 +28,10 @@
     <label for="arrivalTime">Arrival time: (EX: 11/10/2021 - 7:00PM)</label>
     <input type="text" id="arrivalTime" name="arrivalTime"><br><br><br>
 
-    <input type="hidden" name="userID" value="${user.userID}" />
-    <td><button type="submit" class="book-flight-btn" >Browse Flights</button></td>
+    <input type="hidden" name="userID" value="${user.userID}"/>
+    <td>
+        <button type="submit" class="book-flight-btn">Browse Flights</button>
+    </td>
 
 
 </form>
@@ -56,11 +60,11 @@
     San Francisco, SFO
 
 
-    Available Departure Times:
-    2:00 PM
+    Available Departure Time:
+    2:00PM
 
-    Available Arrival Times:
-    7:00 PM
+    Available Arrival Time:
+    7:00PM
 
 
 </pre>

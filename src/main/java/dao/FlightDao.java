@@ -1,7 +1,7 @@
 package dao;
 
 import models.Flight;
-import models.FlightId;
+import models.FlightID;
 
 
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class FlightDao {
 
-    public List<Flight> getFlights(FlightId flightId) {
+    public List<Flight> getFlights(FlightID flightId) {
         List<Flight> flights = new ArrayList();
 
         try {
@@ -52,7 +52,7 @@ public class FlightDao {
     }
 
     //To create flights, currently available seats, price, and flight capacity are hard coded. Could be added to
-    public void createflight(FlightId flightId) {
+    public void createFlight(FlightID flightId) {
 
         try {
             Connector.connect();
@@ -67,6 +67,29 @@ public class FlightDao {
                     "'%s', " +
                     "'%s')" , 150, 150, flightId.getDepartureCity(), flightId.getArrivalCity(), flightId.getDepartureTime(), flightId.getArrivalTime(), 150);
             statement.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    // Will delete the flight with the given id
+    public void deleteFlight(int id) {
+
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+
+            //Have to delete any trips that have this flightID first
+            // or else it won't delete
+            //Error: Cannot delete or update a parent row: a foreign key constraint fails (`Software`.`Trip`, CONSTRAINT `Trip_ibfk_1` FOREIGN KEY (`flightID`) REFERENCES `Flight` (`flightID`))
+
+            String query1 = String.format("DELETE FROM Software.Trip WHERE flightID = '%s';", id);
+            statement.executeUpdate(query1);
+
+            String query2 = String.format("DELETE FROM Software.Flight WHERE flightID = '%s';", id);
+            statement.executeUpdate(query2);
 
         } catch (Exception e) {
             System.out.println(e);
@@ -98,8 +121,9 @@ public class FlightDao {
                 flights.add(f);
             }
         } catch (Exception e) {
-            System.out.println(e);
-        }
+            System.out.println(e);        }
         return flights;
     }
+
+
 }
