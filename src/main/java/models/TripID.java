@@ -3,12 +3,12 @@ package models;
 /**
  * This is a helper class that makes it easier to work with the user's command to show their trips.
  */
-public class TripId {
+public class TripID {
 
     private int flightID;
     private int userID;
 
-    public TripId(int flightID, int userID) {
+    public TripID(int flightID, int userID) {
 
         this.flightID = flightID;
         this.userID = userID;

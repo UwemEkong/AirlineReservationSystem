@@ -36,9 +36,10 @@
             <td>${flight.price}</td>
 
 
-            <form action="${pageContext.request.contextPath}/login.jsp" method="get">
-                <td><button type="submit" class="book-flight-btn" >Login To Book</button></td>
-
+            <form action="${pageContext.request.contextPath}/bookFlight" method="post">
+                <input type="hidden" name="flightID1" value="${flight.flightID}" />
+                <input type="hidden" name="userID" value="${user.userID}" />
+                <td><button class="book-flight-btn">Book Flight</button></td>
             </form>
 
         </tr>

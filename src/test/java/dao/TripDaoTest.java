@@ -2,7 +2,7 @@ package dao;
 
 import junit.framework.TestCase;
 import models.Flight;
-import models.TripId;
+import models.TripID;
 
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,9 +23,9 @@ public class TripDaoTest extends TestCase {
         TripDao dao = new TripDao();
 
         // This creates 3 trips
-        TripId tripId1 = new TripId(3, 3);
-        TripId tripId2 = new TripId(4, 3);
-        TripId tripId3 = new TripId(5, 3);
+        TripID tripId1 = new TripID(3, 3);
+        TripID tripId2 = new TripID(4, 3);
+        TripID tripId3 = new TripID(5, 3);
 
         // This deletes the trips from the database, just in case they already exist (can't have duplicate trips)
         dao.deleteTrip(tripId1);
@@ -70,7 +70,7 @@ public class TripDaoTest extends TestCase {
         Statement statement = Connector.connection.createStatement();
 
         // This creates a trip
-        TripId tripId = new TripId(2, 4);
+        TripID tripId = new TripID(2, 4);
 
         // This deletes the trip from the database, just in case it already exists (can't have duplicate trips)
         String query = String.format("DELETE FROM Software.Trip WHERE flightID = 2 && userID = 4");
@@ -112,7 +112,7 @@ public class TripDaoTest extends TestCase {
         Statement statement = Connector.connection.createStatement();
 
         // This creates a trip
-        TripId tripId = new TripId(2, 4);
+        TripID tripId = new TripID(2, 4);
 
         // This adds the trip into the database
         String query = String.format("INSERT INTO Software.Trip (flightID, userID) VALUES (2,4)");

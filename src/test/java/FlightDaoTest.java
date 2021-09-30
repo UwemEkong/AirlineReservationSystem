@@ -1,11 +1,9 @@
-import dao.FlightDao;
 import models.Flight;
-import models.FlightId;
+import models.FlightID;
 import org.junit.Test;
 import servlets.GetFlight;
 import testutils.FlightUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -20,7 +18,7 @@ public class FlightDaoTest {
      */
     @Test
     public void TestGetFlightSuccess() {
-       FlightId flightId = FlightUtils.testFlightId;
+       FlightID flightId = FlightUtils.testFlightId;
        GetFlight getFlight = new GetFlight();
 
        List<Flight> actual = getFlight.getFlights(flightId);
@@ -40,7 +38,7 @@ public class FlightDaoTest {
      */
     @Test(expected = RuntimeException.class)
     public void TestGetFlightFailure_NotEnoughSeats() {
-        FlightId flightId = FlightUtils.testFlightId2;
+        FlightID flightId = FlightUtils.testFlightId2;
         GetFlight getFlight = new GetFlight();
 
         List<Flight> actual = getFlight.getFlights(flightId);
@@ -53,7 +51,7 @@ public class FlightDaoTest {
      */
     @Test(expected = RuntimeException.class)
     public void TestGetFlightFailure_NoMatchingFlight() {
-        FlightId flightId = FlightUtils.testFlightId3;
+        FlightID flightId = FlightUtils.testFlightId3;
         GetFlight getFlight = new GetFlight();
 
         List<Flight> actual = getFlight.getFlights(flightId);
