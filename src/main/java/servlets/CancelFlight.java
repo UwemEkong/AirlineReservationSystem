@@ -8,8 +8,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.Flight;
 import models.TripID;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * This servlet handles all POST requests to the '/cancelFlight' endpoint
@@ -21,7 +23,6 @@ public class CancelFlight extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         TripDao tripDao = new TripDao();
-        MemberDao memberDao = new MemberDao();
 
         int flightID = Integer.parseInt(request.getParameter("flightID2"));
         int userID = Integer.parseInt(request.getParameter("userID"));
@@ -29,11 +30,16 @@ public class CancelFlight extends HttpServlet {
         TripID tripId = new TripID(flightID, userID);
         deleteTrip(tripId,tripDao);
 
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        List<Flight> bookedFlights = tripDao.getAllTrips(userID);
+        RequestDispatcher rd = request.getRequestDispatcher("showMyBookedFlights.jsp");
+        request.setAttribute("flights", bookedFlights);
         rd.forward(request, response);
     }
 
     public static void deleteTrip(TripID tripId, TripDao tripDao){
         tripDao.deleteTrip(tripId);
     }
+
+
+
 }

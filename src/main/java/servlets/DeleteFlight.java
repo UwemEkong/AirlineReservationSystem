@@ -7,9 +7,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.Flight;
 import models.FlightID;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * This servlet handles all GET and POST requests to the '/deleteFlight' endpoint
@@ -22,11 +24,13 @@ public class DeleteFlight extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("flightID1"));
-
         deleteTheFlight(id);
 
+        FlightDao flightDao = new FlightDao();
+        List<Flight> allAvailableFlights = flightDao.getAllAvailableFlights();
 
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("deleteFlight.jsp");
+        request.setAttribute("flights", allAvailableFlights);
         rd.forward(request, response);
 
     }
