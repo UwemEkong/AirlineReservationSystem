@@ -17,6 +17,14 @@
 
 <div class="row">
   <div class="login-form-col" id="login-form-container">
+      <div class="container-fluid" id="login-options-container">
+          <div class="col">
+              <a class="member-option">Login as Member</a>
+          </div>
+          <div class="col">
+              <a class="admin-option">Login as Admin</a>
+          </div>
+      </div>
       <div class="error-login">${message}</div>
       <form class="login-form" action="${pageContext.request.contextPath}/login" method="post">
             <div class="form-data">

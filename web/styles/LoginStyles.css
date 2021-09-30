@@ -42,3 +42,17 @@
     font-weight:bold;
     text-align:center;
 }
+
+#login-options-container {
+    border:solid red;
+    display:flex;
+    justify-content:space-between
+}
+
+.col .member-option {
+    text-decoration:none;
+}
+
+.col .admin-option {
+    text-decoration:none;
+}
