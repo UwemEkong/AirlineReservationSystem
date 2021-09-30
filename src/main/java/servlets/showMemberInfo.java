@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * This servlet handles all GET requests to the '/showUserInfo' endpoint
+ * This servlet handles all GET requests to the '/showMemberInfo' endpoint
  */
-@WebServlet(urlPatterns = "/showUserInfo")
-public class ShowUserInfo extends HttpServlet {
+@WebServlet(urlPatterns = "/showMemberInfo")
+public class showMemberInfo extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
