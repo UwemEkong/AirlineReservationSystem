@@ -7,6 +7,8 @@
 <body>
 <%@include file="header.jsp" %>
 
+<div class="container">
+
 <p1>
     Your Search Results
 </p1>
@@ -65,5 +67,7 @@
 
     </c:forEach>
 </table>
+
+</div>
 </body>
 </html>

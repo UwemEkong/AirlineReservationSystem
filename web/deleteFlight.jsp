@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-
+<div class="container">
 <p1>Admin Privilege: Delete Flight</p1>
 <br><br><br><br>
 
@@ -39,5 +39,6 @@
 
     </c:forEach>
 </table>
+</div>
 </body>
 </html>
