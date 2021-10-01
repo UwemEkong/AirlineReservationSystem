@@ -1,11 +1,8 @@
 package servlets;
 
-import dao.MemberDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import models.Member;
-import models.MemberID;
 
 import java.io.IOException;
 

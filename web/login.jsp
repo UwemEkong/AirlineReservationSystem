@@ -35,7 +35,7 @@
                 <input class="login-form-input" type="text" id="password" name="password"><br><br>
 
                 <button class="login-button" type="submit">Login</button>
-                <a href="${pageContext.request.contextPath}/signup.jsp"><button class="signup-button" type="button">Sign Up</button></a>
+                <a href="${pageContext.request.contextPath}/signUp.jsp"><button class="signup-button" type="button">Sign Up</button></a>
             </div>
       </form>
   </div>

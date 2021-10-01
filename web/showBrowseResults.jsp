@@ -7,6 +7,8 @@
 <body>
 <%@include file="header.jsp" %>
 
+<div class="container">
+
 <p1>
     Your Search Results
 </p1>
@@ -50,6 +52,10 @@
             <c:if test="${empty sessionScope.user.userID}" >
             <form action="${pageContext.request.contextPath}/login.jsp" method="get">
                 <td><button type="submit" class="book-flight-btn" >Login To Book</button></td>
+
+            </form>
+            <form action="${pageContext.request.contextPath}/signUp.jsp" method="get">
+                <td><button type="submit" class ="book-flight-btn" >Sign Up To Book</button></td>
             </form>
             </c:if>
 
@@ -65,5 +71,7 @@
 
     </c:forEach>
 </table>
+
+</div>
 </body>
 </html>

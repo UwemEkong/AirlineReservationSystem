@@ -1,7 +1,7 @@
-import models.MemberID;
+import models.UserID;
 import org.junit.Test;
 import servlets.RegisterServlet;
-import testutils.MemberUtils;
+import testutils.UserUtils;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,10 +13,10 @@ public class RegisterServletTest {
      */
     @Test
     public void testPasswordLengthFailure() {
-        MemberID memberID = MemberUtils.invalidMemberID;
+        UserID userID = UserUtils.INVALID_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.checkInvalidPassword(memberID);
+        boolean actual = servlet.checkInvalidPassword(userID);
         boolean expected = true;
 
         assertEquals(actual, expected);
@@ -27,10 +27,10 @@ public class RegisterServletTest {
      */
     @Test
     public void testPasswordLengthSuccess() {
-        MemberID memberID = MemberUtils.validMemberID;
+        UserID userID = UserUtils.VALID_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.checkInvalidPassword(memberID);
+        boolean actual = servlet.checkInvalidPassword(userID);
         boolean expected = false;
 
         assertEquals(actual, expected);
@@ -41,10 +41,10 @@ public class RegisterServletTest {
      */
     @Test
     public void testUsernameNotExist() {
-        MemberID memberID = MemberUtils.newMemberID;
+        UserID userID = UserUtils.NEW_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.userExists(memberID.getUserName());
+        boolean actual = servlet.userExists(userID.getUserName());
         boolean expected = false;
 
         assertEquals(actual, expected);
@@ -55,38 +55,37 @@ public class RegisterServletTest {
      */
     @Test
     public void testUsernameExists() {
-        MemberID memberID = MemberUtils.validMemberID;
+        UserID userID = UserUtils.VALID_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.userExists(memberID.getUserName());
-        boolean expected = true;
+        boolean actual = servlet.userExists(userID.getUserName());
 
-        assertEquals(actual, expected);
+        assertEquals(actual, true);
     }
 
     /**
-     * Test that checkMissingData() returns true if the memberID is missing an input value
+     * Test that checkMissingData() returns true if the userID is missing an input value
      */
     @Test
     public void testMissingData() {
-        MemberID memberID = MemberUtils.invalidMemberID2;
+        UserID userID = UserUtils.INVALID_USER_ID_2;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.checkMissingData(memberID);
+        boolean actual = servlet.checkMissingData(userID);
         boolean expected = true;
 
         assertEquals(actual, expected);
     }
 
     /**
-     * Test that checkMissingData() returns false if the memberID is not missing any input values
+     * Test that checkMissingData() returns false if the userID is not missing any input values
      */
     @Test
     public void testNoMissingData() {
-        MemberID memberID = MemberUtils.validMemberID2;
+        UserID userID = UserUtils.VALID_USER_ID_2;
         RegisterServlet servlet = new RegisterServlet();
 
-        boolean actual = servlet.checkMissingData(memberID);
+        boolean actual = servlet.checkMissingData(userID);
         boolean expected = false;
 
         assertEquals(actual, expected);

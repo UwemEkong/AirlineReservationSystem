@@ -1,11 +1,11 @@
 package servlets;
 
-import dao.MemberDao;
+import dao.UserDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import models.Member;
-import models.MemberID;
+import models.User;
+import models.UserID;
 
 import java.io.IOException;
 
@@ -18,16 +18,16 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
 
-        MemberID memberID = new MemberID(userName, password);
+        UserID userID = new UserID(userName, password);
 
-        Member member = getMember(memberID);
-        System.out.println(member);
+        User user = getUser(userID);
+        System.out.println(user);
         String destination = "";
 
-        if (memberIsValid(member)) {
+        if (userIsValid(user)) {
             destination = "index.jsp";
             HttpSession session = request.getSession();
-            session.setAttribute("user",member);
+            session.setAttribute("user", user);
         } else {
             destination = "login.jsp";
             String message = "Incorrect username/password";
@@ -38,13 +38,13 @@ public class LoginServlet extends HttpServlet {
         rd.forward(request, response);
     }
 
-    private boolean memberIsValid(Member member) {
-        return member != null && member.getFirstName() != null;
+    private boolean userIsValid(User user) {
+        return user != null && user.getFirstName() != null;
     }
 
-    private Member getMember(MemberID memberID) {
-        MemberDao memberDao = new MemberDao();
+    private User getUser(UserID userID) {
+        UserDao userDao = new UserDao();
 
-       return memberDao.getMember(memberID);
+       return userDao.getUser(userID);
     }
 }

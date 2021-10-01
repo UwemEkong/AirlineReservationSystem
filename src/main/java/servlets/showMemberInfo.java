@@ -1,14 +1,14 @@
 
 package servlets;
 
-import dao.MemberDao;
+import dao.UserDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Member;
+import models.User;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,17 +22,17 @@ public class showMemberInfo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Member> members = listAllMembers();
+        List<User> users = listAllMembers();
 
         RequestDispatcher rd = request.getRequestDispatcher("showUserInfo.jsp");
-        request.setAttribute("members", members);
+        request.setAttribute("users", users);
 
         rd.forward(request, response);
 
     }
 
-    public static List<Member> listAllMembers(){
-        MemberDao dao = new MemberDao();
-        return dao.getAllMembers();
+    public static List<User> listAllMembers(){
+        UserDao dao = new UserDao();
+        return dao.getAllUsers();
     }
 }
