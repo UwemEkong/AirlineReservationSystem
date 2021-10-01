@@ -1,15 +1,15 @@
 
 package servlets;
 
-import dao.MemberDao;
+import dao.UserDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Member;
-import models.MemberID;
+import models.User;
+import models.UserID;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,17 +33,17 @@ public class UpdateMemberInfo extends HttpServlet {
         String paymentInfo = request.getParameter("paymentInfo");
         int userid = Integer.parseInt(request.getParameter("userId"));
 
-        MemberDao dao = new MemberDao();
-        MemberID memberID = new MemberID(firstName,lastName,userName,password,email,paymentInfo);
+        UserDao dao = new UserDao();
+        UserID userID = new UserID(firstName,lastName,userName,password,email,paymentInfo);
 
-        dao.updateMember(memberID,userid);
+        dao.updateUser(userID,userid);
 
         //updateMemberInfo(memberID, userid);
 
-        List<Member> members = dao.getAllMembers();
+        List<User> users = dao.getAllUsers();
 
         RequestDispatcher rd = request.getRequestDispatcher("showUserInfo.jsp");
-        request.setAttribute("members", members);
+        request.setAttribute("members", users);
 
         rd.forward(request, response);
 

@@ -21,20 +21,20 @@
     <th>Last Name</th>
     <th>Email</th>
 
-    <c:forEach items = "${members}" var="member">
+    <c:forEach items = "${users}" var="user">
         <tr>
-            <td>${member.userID}</td>
+            <td>${user.userID}</td>
 
             <form action="${pageContext.request.contextPath}/updateMemberInfo" method="post">
 
-                <input type="hidden" name="userId" value="${member.userID}" />
+                <input type="hidden" name="userId" value="${user.userID}" />
 
-                <td><input type="text" name="userName" value="${member.userName}" /></td>
-                <td><input type="text" name="password" value="${member.password}" /></td>
-                <td><input type="text" name="paymentInfo" value="${member.paymentInfo}" /></td>
-                <td><input type="text" name="firstName" value="${member.firstName}" /></td>
-                <td><input type="text" name="lastName" value="${member.lastName}" /></td>
-                <td><input type="text" name="email" value="${member.email}" /></td>
+                <td><input type="text" name="userName" value="${user.userName}" /></td>
+                <td><input type="text" name="password" value="${user.password}" /></td>
+                <td><input type="text" name="paymentInfo" value="${user.paymentInfo}" /></td>
+                <td><input type="text" name="firstName" value="${user.firstName}" /></td>
+                <td><input type="text" name="lastName" value="${user.lastName}" /></td>
+                <td><input type="text" name="email" value="${user.email}" /></td>
 
                 <td><button type="submit" class="book-flight-btn">Update (Admin Only)</button></td>
             </form>

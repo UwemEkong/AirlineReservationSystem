@@ -1,8 +1,7 @@
 package dao;
 
-import models.Flight;
-import models.Member;
-import models.MemberID;
+import models.User;
+import models.UserID;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -11,69 +10,69 @@ import java.util.List;
 
 
 /**
- * The MemberDao class is used to write queries to the 'Software' database. This class helps us separate our 'database logic' from our 'servlet logic'. Without this class, we would have to
+ * The UserDao class is used to write queries to the 'Software' database. This class helps us separate our 'database logic' from our 'servlet logic'. Without this class, we would have to
  * put all of our queries and connections to the database inside the servlet class. By using the 'dao' (data access object) design pattern, we take advantage of loose coupling.
  *
  * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
  */
-public class MemberDao {
+public class UserDao {
 
     /**
      * Validates the user's userName and Password by checking the database for a record that has the same username and password
      *
-     * @param memberID - userName and password of the user attempting to login
-     * @return Member
+     * @param userID - userName and password of the user attempting to login
+     * @return User
      */
-    public static Member getMember(MemberID memberID) {
-        Member member = new Member();
+    public static User getUser(UserID userID) {
+        User user = new User();
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
 
-            String query = String.format("SELECT * FROM Software.Member " +
-                    "WHERE Software.Member.userName = '%s'" +
-                    "AND Software.Member.password = '%s';", memberID.getUserName(), memberID.getPassword());
+            String query = String.format("SELECT * FROM Software.User " +
+                    "WHERE Software.User.userName = '%s'" +
+                    "AND Software.User.password = '%s';", userID.getUserName(), userID.getPassword());
 
             ResultSet rs = statement.executeQuery(query);
 
             if (rs.next()) {
-                member.setFirstName(rs.getString("firstName"));
-                member.setLastName(rs.getString("lastName"));
-                member.setUserID(rs.getInt("userID"));
-                member.setFullName();
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setUserID(rs.getInt("userID"));
+                user.setFullName();
 
 
-                member.setFullName();
+                user.setFullName();
             }
         } catch (Exception e) {
 
         }
-        return member;
+        return user;
     }
 
     /**
      * Creates a new user record and adds it to the database if the user enters the correct registration information
      *
-     * @param memberID - userName and password of the user attempting to register
-     * @return Member
+     * @param userID - userName and password of the user attempting to register
+     * @return User
      */
-    public void createMember(MemberID memberID) {
+    public void createUser(UserID userID) {
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
 
-            String query = String.format("INSERT INTO Software.Member (paymentInfo, password, firstName, lastName, email, userName) " +
+            String query = String.format("INSERT INTO Software.User (paymentInfo, password, firstName, lastName, email, userName) " +
                     "VALUES ('%s', " +
                     "'%s', " +
                     "'%s', " +
                     "'%s', " +
                     "'%s', " +
-                    "'%s')" , memberID.getPaymentInfo(),
-                    memberID.getPassword(),
-                    memberID.getFirstName(),
-                    memberID.getLastName(),
-                    memberID.getEmail(),
-                    memberID.getUserName());
+                    "'%s')" , userID.getPaymentInfo(),
+                    userID.getPassword(),
+                    userID.getFirstName(),
+                    userID.getLastName(),
+                    userID.getEmail(),
+                    userID.getUserName());
 
             statement.executeUpdate(query);
 
@@ -84,46 +83,46 @@ public class MemberDao {
     }
 
     /**
-     * Searches the database for a specific member, given a username
+     * Searches the database for a specific user, given a username
      *
      * @param username - userName of the member attempting to register
-     * @return Member
+     * @return User
      */
-    public Member findMemberByUsername(String username) {
-        Member member = new Member();
+    public User findUserByUsername(String username) {
+        User user = new User();
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
 
-            String query = String.format("SELECT * FROM Software.Member " +
-                    "WHERE Software.Member.userName = '%s'", username);
+            String query = String.format("SELECT * FROM Software.User " +
+                    "WHERE Software.User.userName = '%s'", username);
 
             ResultSet rs = statement.executeQuery(query);
 
             if (rs.next()) {
-                member.setFirstName(rs.getString("firstName"));
-                member.setLastName(rs.getString("lastName"));
-                member.setUserName(rs.getString("userName"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setUserName(rs.getString("userName"));
             }
         } catch (Exception e) {
 
         }
-        return member;
+        return user;
     }
 
-    // Gets a list of all members
-    public List<Member> getAllMembers() {
-        List<Member> members = new ArrayList();
+    // Gets a list of all users
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList();
 
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
-            String query = String.format("SELECT * FROM Software.Member");
+            String query = String.format("SELECT * FROM Software.User");
 
             ResultSet rs = statement.executeQuery(query);
 
             while (rs.next()) {
-                Member m = new Member();
+                User m = new User();
                 m.setUserID(rs.getInt("userID"));
                 m.setFirstName(rs.getString("firstName"));
                 m.setLastName(rs.getString("lastName"));
@@ -131,20 +130,20 @@ public class MemberDao {
                 m.setUserName(rs.getString("userName"));
                 m.setPassword(rs.getString("password"));
                 m.setEmail(rs.getString("email"));
-                members.add(m);
+                users.add(m);
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-        return members;
+        return users;
     }
 
-    public void updateMember(MemberID memberID, int userid) {
+    public void updateUser(UserID userID, int userid) {
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
 
-            String query = String.format("UPDATE Software.Member " +
+            String query = String.format("UPDATE Software.User " +
                             "SET paymentInfo = '%s'" +
                             ", password = '%s'" +
                             ", firstName = '%s'" +
@@ -152,12 +151,12 @@ public class MemberDao {
                             ", email = '%s'" +
                             ", userName = '%s' " +
                             "WHERE userID = '%s'"
-                             , memberID.getPaymentInfo(),
-                    memberID.getPassword(),
-                    memberID.getFirstName(),
-                    memberID.getLastName(),
-                    memberID.getEmail(),
-                    memberID.getUserName(),
+                             , userID.getPaymentInfo(),
+                    userID.getPassword(),
+                    userID.getFirstName(),
+                    userID.getLastName(),
+                    userID.getEmail(),
+                    userID.getUserName(),
                     userid);
 
             statement.executeUpdate(query);

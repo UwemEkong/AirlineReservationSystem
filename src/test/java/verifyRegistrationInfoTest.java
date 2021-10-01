@@ -1,4 +1,4 @@
-import models.MemberID;
+import models.UserID;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import servlets.RegisterServlet;
@@ -8,8 +8,8 @@ import servlets.RegisterServlet;
  */
 public class verifyRegistrationInfoTest {
 
-    MemberID test1 = new MemberID("Adam", "Chaps", "AdamChapss", "Password1!","test@test.com", "***-123-456" );
-    MemberID test2 = new MemberID("AdamFails", "password");
+    UserID test1 = new UserID("Adam", "Chaps", "AdamChapss", "Password1!","test@test.com", "***-123-456" );
+    UserID test2 = new UserID("AdamFails", "password");
 
     @Test
     public void verifyValidPassword() {

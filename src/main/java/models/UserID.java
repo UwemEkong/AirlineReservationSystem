@@ -2,9 +2,9 @@ package models;
 
 /**
  * This is a helper class that makes it easier to work with the user's input data when they attempt to login and register.
- * The difference between this class and the 'memberID' column in the database table is that this class represents the fields taken from the form within 'login.jsp' and 'signUp.jsp'
+ * The difference between this class and the 'userID' column in the database table is that this class represents the fields taken from the form within 'login.jsp' and 'signUp.jsp'
  */
-public class MemberID {
+public class UserID {
 
     private String paymentInfo;
     private String password;
@@ -17,12 +17,12 @@ public class MemberID {
         return userName;
     }
 
-    public MemberID(String userName, String password) {
+    public UserID(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
 
-    public MemberID(String firstName, String lastName, String userName, String password, String email, String paymentInfo) {
+    public UserID(String firstName, String lastName, String userName, String password, String email, String paymentInfo) {
         this.paymentInfo = paymentInfo;
         this.password = password;
         this.firstName = firstName;
