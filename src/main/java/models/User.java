@@ -10,14 +10,14 @@ public class User {
     private String lastName;
     private String email;
     private String userName;
-    private String isAdmin;
+    private String userType;
 
-    public String getIsAdmin() {
-        return isAdmin;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setIsAdmin(String isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setUserType(String userType) {
+        this.userType= userType;
     }
 
     public String getFullName() {
@@ -97,13 +97,15 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userID='" + userID + '\'' +
+                "userID=" + userID +
                 ", paymentInfo='" + paymentInfo + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", userName='" + userName + '\'' +
+                ", userType='" + userType + '\'' +
+                ", fullName='" + fullName + '\'' +
                 '}';
     }
 }

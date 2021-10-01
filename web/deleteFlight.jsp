@@ -11,6 +11,8 @@
 <br><br><br><br>
 
 <br><br><br><br>
+<c:set var="AdminUser" value="ADMIN"/>
+<c:if test="${sessionScope.user.userType == AdminUser}" >
 <table class="table">
     <th>Flight ID</th>
     <th>Departure City</th>
@@ -39,6 +41,7 @@
 
     </c:forEach>
 </table>
+</c:if>
 </div>
 </body>
 </html>

@@ -33,19 +33,6 @@ public class BrowseFlights extends HttpServlet {
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
 
-        // Admin Privilege: Delete Flight
-        if (departureCity.equals("departureCityAdminPrivilege") &&
-                arrivalCity.equals("arrivalCityAdminPrivilege") &&
-                departureTime.equals("departureTimeAdminPrivilege") &&
-                arrivalTime.equals("arrivalTimeAdminPrivilege")) {
-            resultFlights = allFlights;
-            RequestDispatcher rd = request.getRequestDispatcher("deleteFlight.jsp");
-            request.setAttribute("flights", resultFlights);
-            rd.forward(request, response);
-            return;
-        }
-
-
         // 4 Blanks
 
         if (departureCity.equals("") && arrivalCity.equals("") && departureTime.equals("") && arrivalTime.equals("")) {
@@ -194,13 +181,8 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-
-
         RequestDispatcher rd = request.getRequestDispatcher("showBrowseResults.jsp");
         request.setAttribute("flights", resultFlights);
         rd.forward(request, response);
-
-
-
     }
 }

@@ -12,6 +12,8 @@
 </p1>
 <br><br><br><br>
 
+<c:set var="AdminUser" value="ADMIN"/>
+    <c:if test="${sessionScope.user.userType == AdminUser}" >
 <table class="table">
     <th>User ID</th>
     <th>Username</th>
@@ -41,6 +43,7 @@
         </tr>
     </c:forEach>
 </table>
+</c:if>
 </div>
 </body>
 </html>
