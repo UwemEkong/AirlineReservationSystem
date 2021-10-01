@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-
+<div class="container">
 <p1>
     Admin - User Information
 </p1>
@@ -41,5 +41,6 @@
         </tr>
     </c:forEach>
 </table>
+</div>
 </body>
 </html>

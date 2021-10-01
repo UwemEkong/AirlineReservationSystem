@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-
+<div class="container">
 <p1>
     My Booked Flights
 </p1>
@@ -47,5 +47,6 @@
 
     </c:forEach>
 </table>
+</div>
 </body>
 </html>

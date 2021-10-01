@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-
+<div class="container">
 <p1>Admin Privilege: Add Flight</p1>
 <br><br><br><br>
 <form action="${pageContext.request.contextPath}/addFlight" method="post">
@@ -25,5 +25,6 @@
 
     <button type="submit" class="book-flight-btn">Add Flight</button>
 </form>
+</div>
 </body>
 </html>

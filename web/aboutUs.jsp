@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-
+<div class="container">
 <p1>
     About US
 </p1>
@@ -69,6 +69,6 @@ Phone # (213) 335 - 2223
 <br><br><br><br>
 </p>
 
-
+</div>
 </body>
 </html>
