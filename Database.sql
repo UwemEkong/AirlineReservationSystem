@@ -27,7 +27,6 @@ CREATE TABLE `User` (
                           PRIMARY KEY (`userID`),
                           UNIQUE KEY `userID_UNIQUE` (`userID`),
                           UNIQUE KEY `userName_UNIQUE` (`userName`)
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `Payment` (
                            `tripID` int NOT NULL AUTO_INCREMENT,
