@@ -96,7 +96,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Member{" +
+        return "User{" +
                 "userID='" + userID + '\'' +
                 ", paymentInfo='" + paymentInfo + '\'' +
                 ", password='" + password + '\'' +

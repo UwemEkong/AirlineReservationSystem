@@ -1,7 +1,7 @@
 import models.UserID;
 import org.junit.Test;
 import servlets.RegisterServlet;
-import testutils.MemberUtils;
+import testutils.UserUtils;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +13,7 @@ public class RegisterServletTest {
      */
     @Test
     public void testPasswordLengthFailure() {
-        UserID userID = MemberUtils.INVALID_USER_ID;
+        UserID userID = UserUtils.INVALID_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
         boolean actual = servlet.checkInvalidPassword(userID);
@@ -27,7 +27,7 @@ public class RegisterServletTest {
      */
     @Test
     public void testPasswordLengthSuccess() {
-        UserID userID = MemberUtils.VALID_USER_ID;
+        UserID userID = UserUtils.VALID_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
         boolean actual = servlet.checkInvalidPassword(userID);
@@ -41,7 +41,7 @@ public class RegisterServletTest {
      */
     @Test
     public void testUsernameNotExist() {
-        UserID userID = MemberUtils.NEW_USER_ID;
+        UserID userID = UserUtils.NEW_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
         boolean actual = servlet.userExists(userID.getUserName());
@@ -55,21 +55,20 @@ public class RegisterServletTest {
      */
     @Test
     public void testUsernameExists() {
-        UserID userID = MemberUtils.VALID_USER_ID;
+        UserID userID = UserUtils.VALID_USER_ID;
         RegisterServlet servlet = new RegisterServlet();
 
         boolean actual = servlet.userExists(userID.getUserName());
-        boolean expected = true;
 
-        assertEquals(actual, expected);
+        assertEquals(actual, true);
     }
 
     /**
-     * Test that checkMissingData() returns true if the memberID is missing an input value
+     * Test that checkMissingData() returns true if the userID is missing an input value
      */
     @Test
     public void testMissingData() {
-        UserID userID = MemberUtils.INVALID_USER_ID_2;
+        UserID userID = UserUtils.INVALID_USER_ID_2;
         RegisterServlet servlet = new RegisterServlet();
 
         boolean actual = servlet.checkMissingData(userID);
@@ -79,11 +78,11 @@ public class RegisterServletTest {
     }
 
     /**
-     * Test that checkMissingData() returns false if the memberID is not missing any input values
+     * Test that checkMissingData() returns false if the userID is not missing any input values
      */
     @Test
     public void testNoMissingData() {
-        UserID userID = MemberUtils.VALID_USER_ID_2;
+        UserID userID = UserUtils.VALID_USER_ID_2;
         RegisterServlet servlet = new RegisterServlet();
 
         boolean actual = servlet.checkMissingData(userID);

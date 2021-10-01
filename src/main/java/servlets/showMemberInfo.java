@@ -25,7 +25,7 @@ public class showMemberInfo extends HttpServlet {
         List<User> users = listAllMembers();
 
         RequestDispatcher rd = request.getRequestDispatcher("showUserInfo.jsp");
-        request.setAttribute("members", users);
+        request.setAttribute("users", users);
 
         rd.forward(request, response);
 

@@ -43,7 +43,7 @@ public class UpdateMemberInfo extends HttpServlet {
         List<User> users = dao.getAllUsers();
 
         RequestDispatcher rd = request.getRequestDispatcher("showUserInfo.jsp");
-        request.setAttribute("members", users);
+        request.setAttribute("users", users);
 
         rd.forward(request, response);
 

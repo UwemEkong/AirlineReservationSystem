@@ -6,13 +6,13 @@ import static org.junit.Assert.assertEquals;
 import java.sql.*;
 
 /**
- * Test to make sure correct member is queried from database given valid username and password
+ * Test to make sure correct user is queried from database given valid username and password
  */
 public class UserDaoTest {
 
 
     @Test()
-    public void getMemberTest() throws ClassNotFoundException, SQLException {
+    public void getUserTest() throws ClassNotFoundException, SQLException {
 
 
         UserID test1 = new UserID("AdamFly", "adamLikesFlying1!");
@@ -30,7 +30,7 @@ public class UserDaoTest {
     }
 
     @Test()
-    public void getMemberTestFail() throws ClassNotFoundException, SQLException {
+    public void getUserTestFail() throws ClassNotFoundException, SQLException {
 
 
         UserID test1 = new UserID("Dad", "run1!!!!");
