@@ -1,6 +1,6 @@
 package servlets;
 
-import dao.MemberDao;
+import dao.UserDao;
 import dao.TripDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -21,7 +21,7 @@ public class CancelFlight extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         TripDao tripDao = new TripDao();
-        MemberDao memberDao = new MemberDao();
+        UserDao userDao = new UserDao();
 
         int flightID = Integer.parseInt(request.getParameter("flightID2"));
         int userID = Integer.parseInt(request.getParameter("userID"));

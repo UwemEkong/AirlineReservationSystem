@@ -1,11 +1,11 @@
 package servlets;
 
-import dao.MemberDao;
+import dao.UserDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import models.Member;
-import models.MemberID;
+import models.User;
+import models.UserID;
 
 import java.io.IOException;
 
@@ -24,11 +24,11 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String paymentMethod = request.getParameter("paymentMethod");
 
-        MemberID memberID = new MemberID(firstName, lastName, userName, password, email, paymentMethod);
+        UserID userID = new UserID(firstName, lastName, userName, password, email, paymentMethod);
         String destination = "";
 
-        if (verifyRegistrationInfo(memberID)) {
-            createNewMember(memberID);
+        if (verifyRegistrationInfo(userID)) {
+            createNewUser(userID);
             destination = "login.jsp";
         } else {
             destination = "signUp.jsp";
@@ -41,31 +41,31 @@ public class RegisterServlet extends HttpServlet {
 
     }
 
-    public boolean checkInvalidPassword(MemberID memberID) {
-        return memberID.getPassword().length() < 8;
+    public boolean checkInvalidPassword(UserID userID) {
+        return userID.getPassword().length() < 8;
     }
 
     public boolean userExists(String username) {
-        MemberDao memberDao = new MemberDao();
-        Member member = memberDao.findMemberByUsername(username);
+        UserDao userDao = new UserDao();
+        User user = userDao.findUserByUsername(username);
 
-        if (member.getFirstName() != null || member.getLastName() != null || member.getUserName() != null) {
+        if (user.getFirstName() != null || user.getLastName() != null || user.getUserName() != null) {
             return true;
         }
         return false;
     }
 
-    public boolean checkMissingData(MemberID memberID) {
-        if (memberID.getUserName() == null || memberID.getFirstName() == null || memberID.getLastName() == null
-                || memberID.getPassword() == null || memberID.getEmail() == null || memberID.getPaymentInfo() == null) {
+    public boolean checkMissingData(UserID userID) {
+        if (userID.getUserName() == null || userID.getFirstName() == null || userID.getLastName() == null
+                || userID.getPassword() == null || userID.getEmail() == null || userID.getPaymentInfo() == null) {
             return true;
         }
         return false;
     }
-        public  boolean verifyRegistrationInfo (MemberID memberID){
+        public  boolean verifyRegistrationInfo (UserID userID){
 
 
-            String password = memberID.getPassword();
+            String password = userID.getPassword();
             char[] pass = password.toCharArray();
             StringBuilder sb = new StringBuilder();
             int digitCount = 0;
@@ -81,7 +81,7 @@ public class RegisterServlet extends HttpServlet {
                 }
             }
 
-            if (!checkInvalidPassword(memberID) && !userExists(memberID.getUserName()) && !checkMissingData(memberID) && specialCount >= 1 && upperCaseCount >= 1 && digitCount >= 1) {
+            if (!checkInvalidPassword(userID) && !userExists(userID.getUserName()) && !checkMissingData(userID) && specialCount >= 1 && upperCaseCount >= 1 && digitCount >= 1) {
                 return true;
             } else {
                 return false;
@@ -89,9 +89,9 @@ public class RegisterServlet extends HttpServlet {
 
         }
 
-        private void createNewMember (MemberID memberID){
-            MemberDao memberDao = new MemberDao();
-            memberDao.createMember(memberID);
+        private void createNewUser (UserID userID){
+            UserDao userDao = new UserDao();
+            userDao.createUser(userID);
         }
     }
 
