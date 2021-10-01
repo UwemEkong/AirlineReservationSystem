@@ -39,6 +39,7 @@ public class UserDao {
                 user.setFirstName(rs.getString("firstName"));
                 user.setLastName(rs.getString("lastName"));
                 user.setUserID(rs.getInt("userID"));
+                user.setUserType(rs.getString("userType"));
                 user.setFullName();
 
 

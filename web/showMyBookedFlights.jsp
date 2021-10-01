@@ -16,6 +16,9 @@
     <br> Once a flight has been cancelled, you may book it again at anytime.
 </p2>
 <br><br><br><br>
+
+<c:set var="MemberUser" value="MEMBER"/>
+<c:if test="${sessionScope.user.userType == MemberUser}" >
 <table class="table">
     <th>Flight ID</th>
     <th>Departure City</th>
@@ -47,6 +50,7 @@
 
     </c:forEach>
 </table>
+</c:if>
 </div>
 </body>
 </html>

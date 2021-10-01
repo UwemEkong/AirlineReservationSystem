@@ -9,6 +9,8 @@
 <div class="container">
 <p1>Admin Privilege: Add Flight</p1>
 <br><br><br><br>
+<c:set var="AdminUser" value="ADMIN"/>
+<c:if test="${sessionScope.user.userType == AdminUser}" >
 <form action="${pageContext.request.contextPath}/addFlight" method="post">
 
     <label for="departureCity">Departure City: (EX: Chicago, ORD) </label>
@@ -25,6 +27,7 @@
 
     <button type="submit" class="book-flight-btn">Add Flight</button>
 </form>
+</c:if>
 </div>
 </body>
 </html>

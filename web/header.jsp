@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<c:if test="${empty sessionScope.user.firstName}" >
+<c:if test="${empty sessionScope.user.userType}" >
     <div class="jumbotron">
         <div class="container">
             <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
@@ -38,9 +38,13 @@
     </div>
 </c:if>
 
-<c:if test="${not empty sessionScope.user.userID}" >
+<c:set var="AdminUser" value="ADMIN"/>
+<c:set var="MemberUser" value="MEMBER"/>
+
+<c:if test="${sessionScope.user.userType == MemberUser}" >
     <div class="jumbotron">
         <div class="container">
+            <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
         </div>
 
         <nav class="navbar">
@@ -48,12 +52,32 @@
                 <ul class="nav navbar-nav navbar-right">
                     Welcome Back <b>${user.fullName}</b>
 
-                    <form action="${pageContext.request.contextPath}/browseFlights" method="get" style="display: inline" >
-                        <input type="hidden" name="departureCity" value="departureCityAdminPrivilege"/>
-                        <input type="hidden" name="arrivalCity" value="arrivalCityAdminPrivilege"/>
-                        <input type="hidden" name="departureTime" value="departureTimeAdminPrivilege"/>
-                        <input type="hidden" name="arrivalTime" value="arrivalTimeAdminPrivilege"/>
-                        <input type="hidden" name="userID" value="${user.userID}"/>
+                    <form action="${pageContext.request.contextPath}/showMyBookedFlights" method="get" style="display: inline" >
+                        <input type="hidden" name="userID" value="${user.userID}" />
+                        <td><button type="submit" class="btn bg-white text-danger border-danger navbar-btn" >My Booked Flights</button></td>
+                    </form>
+                    <a href="browseFlights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
+
+                    <a href="aboutUs.jsp" class="btn bg-white text-danger border-danger navbar-btn">About US</a>
+                    <a href="${pageContext.request.contextPath}/logout" class="navbar-btn login-signup-btn"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</c:if>
+
+<c:if test="${sessionScope.user.userType == AdminUser}" >
+    <div class="jumbotron">
+        <div class="container">
+            <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
+        </div>
+
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav navbar-nav navbar-right">
+                    Welcome Back <b>${user.fullName}</b>
+
+                    <form action="${pageContext.request.contextPath}/deleteFlight" method="get" style="display: inline" >
                         <td><button type="submit" class="btn bg-white text-danger border-danger navbar-btn" >Delete Flight</button></td>
                     </form>
 
