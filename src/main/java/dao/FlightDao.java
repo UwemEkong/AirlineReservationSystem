@@ -107,7 +107,7 @@ public class FlightDao {
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
-            String query = String.format("SELECT * FROM Software.Flight WHERE AvailableSeats > 0");
+            String query = String.format("SELECT * FROM Software.Flight WHERE AvailableSeats > -1");
 
             ResultSet rs = statement.executeQuery(query);
 

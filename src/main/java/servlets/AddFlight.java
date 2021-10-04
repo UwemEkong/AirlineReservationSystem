@@ -28,7 +28,7 @@ public class AddFlight extends HttpServlet {
         FlightID flightId = new FlightID(departureCity, arrivalCity, departureTime, arrivalTime);
         createTheFlight(flightId);
 
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("addFlight.jsp");
         rd.forward(request, response);
 
     }
