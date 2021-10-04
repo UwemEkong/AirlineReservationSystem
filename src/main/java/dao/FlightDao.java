@@ -2,6 +2,7 @@ package dao;
 
 import models.Flight;
 import models.FlightID;
+import models.UserID;
 
 
 import java.sql.ResultSet;
@@ -65,7 +66,7 @@ public class FlightDao {
                     "'%s', " +
                     "'%s', " +
                     "'%s', " +
-                    "'%s')" , 150, 150, flightId.getDepartureCity(), flightId.getArrivalCity(), flightId.getDepartureTime(), flightId.getArrivalTime(), 150);
+                    "'%s')", 150, 150, flightId.getDepartureCity(), flightId.getArrivalCity(), flightId.getDepartureTime(), flightId.getArrivalTime(), 150);
             statement.executeUpdate(query);
 
         } catch (Exception e) {
@@ -106,7 +107,7 @@ public class FlightDao {
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
-            String query = String.format("SELECT * FROM Software.Flight WHERE AvailableSeats > 0");
+            String query = String.format("SELECT * FROM Software.Flight WHERE AvailableSeats > -1");
 
             ResultSet rs = statement.executeQuery(query);
 
@@ -123,9 +124,39 @@ public class FlightDao {
                 flights.add(f);
             }
         } catch (Exception e) {
-            System.out.println(e);        }
+            System.out.println(e);
+        }
         return flights;
     }
 
 
+    public void updateFlight(FlightID flightID) {
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+
+            String query = String.format("UPDATE Software.Flight " +
+                            "SET AvailableSeats = '%s'" +
+                            ", Price = '%s'" +
+                            ", DepartureCity = '%s'" +
+                            ", ArrivalCity = '%s'" +
+                            ", DepartureTime = '%s'" +
+                            ", ArrivalTime = '%s' " +
+                            ", FlightCapacity = '%s' " +
+                            "WHERE flightID = '%s'"
+                    , flightID.getAvailableSeats(),
+                    flightID.getPrice(),
+                    flightID.getDepartureCity(),
+                    flightID.getArrivalCity(),
+                    flightID.getDepartureTime(),
+                    flightID.getArrivalTime(),
+                    flightID.getFlightCapacity(),
+                    flightID.getId());
+            statement.executeUpdate(query);
+
+
+        } catch (Exception e) {
+
+        }
+    }
 }

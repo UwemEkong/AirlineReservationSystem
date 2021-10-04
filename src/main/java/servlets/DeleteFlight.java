@@ -28,8 +28,11 @@ public class DeleteFlight extends HttpServlet {
 
         deleteTheFlight(id);
 
+        FlightDao flightDao = new FlightDao();
+        List<Flight> allAvailableFlights = flightDao.getAllAvailableFlights();
 
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("deleteFlight.jsp");
+        request.setAttribute("flights", allAvailableFlights);
         rd.forward(request, response);
 
     }

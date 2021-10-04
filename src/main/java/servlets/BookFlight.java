@@ -29,7 +29,7 @@ public class BookFlight extends HttpServlet {
         TripID tripId = new TripID(flightID, userID);
         addTrip(tripId,tripDao);
 
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("browseFlights.jsp");
         rd.forward(request, response);
 
     }

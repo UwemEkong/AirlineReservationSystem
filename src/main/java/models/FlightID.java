@@ -11,6 +11,43 @@ public class FlightID {
     private String departureTime;
     private String arrivalTime;
     private int numberOfPassengers;
+    private int id;
+    private double price;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getFlightCapacity() {
+        return flightCapacity;
+    }
+
+    public void setFlightCapacity(int flightCapacity) {
+        this.flightCapacity = flightCapacity;
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
+    }
+
+    private int flightCapacity;
+    private int availableSeats;
 
     public FlightID(String departureCity, String arrivalCity, String departureTime, String arrivalTime, int numberOfPassengers) {
         this.departureCity = departureCity;
@@ -25,6 +62,18 @@ public class FlightID {
         this.arrivalCity = arrivalCity;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
+    }
+
+    public FlightID(int id, String departureCity, String arrivalCity, String departureTime, String arrivalTime, int availableSeats, double price, int flightCapacity) {
+        this.id = id;
+        this.departureCity = departureCity;
+        this.arrivalCity = arrivalCity;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.availableSeats = availableSeats;
+        this.price = price;
+        this.flightCapacity = flightCapacity;
+
     }
 
     public String getDepartureCity() {

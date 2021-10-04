@@ -1,6 +1,7 @@
 
 package servlets;
 
+import dao.FlightDao;
 import dao.UserDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -8,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.Flight;
 import models.User;
 import models.UserID;
 
@@ -41,9 +43,12 @@ public class UpdateMemberInfo extends HttpServlet {
         //updateMemberInfo(memberID, userid);
 
         List<User> users = dao.getAllUsers();
+        FlightDao flightDao = new FlightDao();
+        List<Flight> flights = flightDao.getAllAvailableFlights();
 
-        RequestDispatcher rd = request.getRequestDispatcher("showUserInfo.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("showAdminPanel.jsp");
         request.setAttribute("users", users);
+        request.setAttribute("flights", flights);
 
         rd.forward(request, response);
 
