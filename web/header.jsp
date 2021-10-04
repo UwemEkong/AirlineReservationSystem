@@ -84,13 +84,7 @@
                     <a href="addFlight.jsp" class="btn bg-white text-danger border-danger navbar-btn">Add Flight</a>
 
                     <a href="${pageContext.request.contextPath}/showAdminInfo" class="btn bg-white text-danger border-danger navbar-btn">Admin Panel</a>
-
-                    <form action="${pageContext.request.contextPath}/showMyBookedFlights" method="get" style="display: inline" >
-                        <input type="hidden" name="userID" value="${user.userID}" />
-                        <td><button type="submit" class="btn bg-white text-danger border-danger navbar-btn" >My Booked Flights</button></td>
-                    </form>
-                    <a href="browseFlights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
-
+                    
                     <a href="aboutUs.jsp" class="btn bg-white text-danger border-danger navbar-btn">About US</a>
                     <a href="${pageContext.request.contextPath}/logout" class="navbar-btn login-signup-btn"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
                 </ul>
