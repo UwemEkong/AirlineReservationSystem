@@ -35,6 +35,7 @@ public class BookFlight extends HttpServlet {
     }
 
     public static void addTrip(TripID tripId, TripDao tripDao){
+
         tripDao.addTrip(tripId);
     }
 }
