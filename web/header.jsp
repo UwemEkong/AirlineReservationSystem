@@ -83,7 +83,7 @@
 
                     <a href="addFlight.jsp" class="btn bg-white text-danger border-danger navbar-btn">Add Flight</a>
 
-                    <a href="${pageContext.request.contextPath}/showMemberInfo" class="btn bg-white text-danger border-danger navbar-btn">Member Info</a>
+                    <a href="${pageContext.request.contextPath}/showAdminInfo" class="btn bg-white text-danger border-danger navbar-btn">Admin Panel</a>
 
                     <form action="${pageContext.request.contextPath}/showMyBookedFlights" method="get" style="display: inline" >
                         <input type="hidden" name="userID" value="${user.userID}" />
