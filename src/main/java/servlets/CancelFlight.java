@@ -1,6 +1,6 @@
 package servlets;
 
-import dao.MemberDao;
+import dao.UserDao;
 import dao.TripDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-
+<div class="container">
 <p1>Browse Flights</p1>
 <br><br><br><br>
 <p2>
@@ -68,6 +68,6 @@
 
 
 </pre>
-
+</div>
 </body>
 </html>

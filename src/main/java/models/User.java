@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public class Member {
+public class User {
     private int userID;
     private String paymentInfo;
     private String password;
@@ -10,6 +10,15 @@ public class Member {
     private String lastName;
     private String email;
     private String userName;
+    private String userType;
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType= userType;
+    }
 
     public String getFullName() {
         return fullName;
@@ -81,20 +90,22 @@ public class Member {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Member member = (Member) o;
-        return Objects.equals(userID, member.userID) && Objects.equals(paymentInfo, member.paymentInfo) && Objects.equals(password, member.password) && Objects.equals(firstName, member.firstName) && Objects.equals(lastName, member.lastName) && Objects.equals(email, member.email) && Objects.equals(userName, member.userName);
+        User user = (User) o;
+        return Objects.equals(userID, user.userID) && Objects.equals(paymentInfo, user.paymentInfo) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(userName, user.userName);
     }
 
     @Override
     public String toString() {
-        return "Member{" +
-                "userID='" + userID + '\'' +
+        return "User{" +
+                "userID=" + userID +
                 ", paymentInfo='" + paymentInfo + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", userName='" + userName + '\'' +
+                ", userType='" + userType + '\'' +
+                ", fullName='" + fullName + '\'' +
                 '}';
     }
 }
