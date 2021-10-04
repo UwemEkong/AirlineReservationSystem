@@ -52,8 +52,8 @@
         <table class="table" id="admin-panel-table">
             <th>Flight ID</th>
             <th>Departure City</th>
-            <th>Departure Time</th>
             <th>Arrival City</th>
+            <th>Departure Time</th>
             <th>Arrival Time</th>
             <th>Available Seats</th>
             <th>Price</th>
@@ -66,8 +66,8 @@
                         <input type="hidden" name="flightId" value="${flight.flightID}"/>
 
                         <td><input type="text" name="departureCity" value="${flight.departureCity}"/></td>
-                        <td><input type="text" name="departureTime" value="${flight.departureTime}"/></td>
                         <td><input type="text" name="arrivalCity" value="${flight.arrivalCity}"/></td>
+                        <td><input type="text" name="departureTime" value="${flight.departureTime}"/></td>
                         <td><input type="text" name="arrivalTime" value="${flight.arrivalTime}"/></td>
                         <td><input type="text" name="availableSeats" value="${flight.availableSeats}"/></td>
                         <td><input type="text" name="price" value="${flight.price}"/></td>
