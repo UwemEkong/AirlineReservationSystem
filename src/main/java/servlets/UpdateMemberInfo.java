@@ -38,8 +38,6 @@ public class UpdateMemberInfo extends HttpServlet {
 
         dao.updateUser(userID,userid);
 
-        //updateMemberInfo(memberID, userid);
-
         List<User> users = dao.getAllUsers();
 
         RequestDispatcher rd = request.getRequestDispatcher("showUserInfo.jsp");
@@ -49,9 +47,4 @@ public class UpdateMemberInfo extends HttpServlet {
 
     }
 
-//    public static void updateMemberInfo(){
-//
-//
-//
-//    }
 }
