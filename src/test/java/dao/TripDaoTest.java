@@ -1,9 +1,11 @@
 package dao;
 
+import jakarta.servlet.ServletException;
 import junit.framework.TestCase;
 import models.Flight;
 import models.TripID;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ public class TripDaoTest extends TestCase {
     /**
      * This tests the getAllTrips method.
      */
-    public void testGetAllTrips() {
+    public void testGetAllTrips() throws ServletException, IOException {
 
         TripDao dao = new TripDao();
 
@@ -63,7 +65,7 @@ public class TripDaoTest extends TestCase {
      * This tests the createTrip method. First it deletes the trip just to make sure we start the test from scratch.
      * Second, it creates the trip. If the creation was successful, then the following delete query update should return a "1".
      */
-    public void testAddTrip() throws SQLException, ClassNotFoundException {
+    public void testAddTrip() throws SQLException, ClassNotFoundException, ServletException, IOException {
 
         TripDao dao = new TripDao();
         Connector.connect();

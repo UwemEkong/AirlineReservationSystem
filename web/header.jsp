@@ -85,6 +85,9 @@
 
                     <a href="${pageContext.request.contextPath}/showAdminInfo" class="btn bg-white text-danger border-danger navbar-btn">Admin Panel</a>
 
+                    <a href="${pageContext.request.contextPath}/bookForUser" class="btn bg-white text-danger border-danger navbar-btn">Book For User</a>
+
+
                     <a href="aboutUs.jsp" class="btn bg-white text-danger border-danger navbar-btn">About US</a>
                     <a href="${pageContext.request.contextPath}/logout" class="navbar-btn login-signup-btn"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
                 </ul>
