@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import jakarta.servlet.http.HttpServletResponse;
 import models.TripID;
 import java.io.IOException;
@@ -17,9 +18,14 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/bookFlight")
 public class BookFlight extends HttpServlet {
 
+    static HttpServletRequest req;
+    static HttpServletResponse resp;
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        req = request;
+        resp = response;
         TripDao tripDao = new TripDao();
         UserDao userDao = new UserDao();
 
@@ -27,15 +33,31 @@ public class BookFlight extends HttpServlet {
         int userID = Integer.parseInt(request.getParameter("userID"));
 
         TripID tripId = new TripID(flightID, userID);
-        addTrip(tripId,tripDao);
+
+            addTrip(tripId, tripDao);
 
         RequestDispatcher rd = request.getRequestDispatcher("browseFlights.jsp");
         rd.forward(request, response);
 
     }
 
-    public static void addTrip(TripID tripId, TripDao tripDao){
-
+    public static void addTrip(TripID tripId, TripDao tripDao) throws ServletException, IOException {
+//    try {
         tripDao.addTrip(tripId);
+//    } catch (ServletException e) {
+//        String destination = "";
+//        destination = "bookForUser.jsp";
+//        String message = "Could not add flight.  Please try again.";
+//
+//        req.setAttribute("message", message);
+//        System.out.print("incorrect");
+//        RequestDispatcher rd = req.getRequestDispatcher(destination);
+//        rd.forward(req, resp);
+//
+//    }
+    }
+
+    public static void displayError() {
+
     }
 }

@@ -1,9 +1,16 @@
 package dao;
 
+import jakarta.servlet.annotation.*;
+ import jakarta.servlet.http.*;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
 import models.Flight;
 import models.TripID;
 
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -76,7 +83,7 @@ public class TripDao {
      * @return updateSuccess the success of the 2 query updates (adding a trip, decrementing available seats)
      * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
      */
-    public int addTrip(TripID tripId) {
+    public int addTrip(TripID tripId) throws ServletException, IOException {
 
         int updateSuccess = 0;
         int availableSeats;
@@ -103,8 +110,11 @@ public class TripDao {
 
             }
 
+
+
         } catch (Exception e) {
-            System.out.println(e);
+//            throw new ServletException();
+                 System.out.println(e);
 
         }
 
