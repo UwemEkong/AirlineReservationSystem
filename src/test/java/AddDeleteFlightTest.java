@@ -1,13 +1,21 @@
+import dao.Connector;
 import models.Flight;
 import models.FlightID;
+import dao.FlightDao;
 import org.junit.Test;
 import servlets.AddFlight;
 import servlets.GetFlight;
 import testutils.FlightUtils;
-
 import static org.junit.Assert.assertEquals;
 
-public class AddFlightTest {
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+/**
+ * Tests for Adding and Deleting Flights, these should be
+ * run together to avoid losing or creating extra data your the database
+ */
+public class AddDeleteFlightTest {
 
     /**
      * Test Add Flight
@@ -31,6 +39,24 @@ public class AddFlightTest {
 
         assertEquals("Chicago, ORD", actual.getDepartureCity());
         assertEquals(original_size+1, new_size);
+    }
+
+    /**
+     * Test Delete Flight
+     */
+    @Test
+    public void TestDeleteFlight() {
+
+        FlightDao dao = new FlightDao();
+
+        int id = dao.getGreatestFlightID();
+
+        dao.deleteFlight(id);
+
+        int newid = dao.getGreatestFlightID();
+
+        assertEquals(false,id == newid);
+
     }
 
 }

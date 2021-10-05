@@ -40,8 +40,6 @@ public class UpdateMemberInfo extends HttpServlet {
 
         dao.updateUser(userID,userid);
 
-        //updateMemberInfo(memberID, userid);
-
         List<User> users = dao.getAllUsers();
         FlightDao flightDao = new FlightDao();
         List<Flight> flights = flightDao.getAllAvailableFlights();
@@ -54,9 +52,4 @@ public class UpdateMemberInfo extends HttpServlet {
 
     }
 
-//    public static void updateMemberInfo(){
-//
-//
-//
-//    }
 }

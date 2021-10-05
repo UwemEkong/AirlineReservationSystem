@@ -129,6 +129,25 @@ public class FlightDao {
         return flights;
     }
 
+    public int getGreatestFlightID(){
+
+        try {
+            Connector.connect();
+            Statement statement = Connector.connection.createStatement();
+            String query = String.format("SELECT * FROM Software.Flight WHERE FlightId = (SELECT MAX(FlightID) FROM Software.Flight);");
+
+            ResultSet rs = statement.executeQuery(query);
+
+            rs.next();
+
+            return rs.getInt(1);
+
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
+        return -1;
+    }
 
     public void updateFlight(FlightID flightID) {
         try {
