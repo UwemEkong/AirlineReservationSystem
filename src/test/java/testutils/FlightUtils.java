@@ -32,6 +32,9 @@ public class FlightUtils {
             300
     );
 
+    public static final FlightID testFlightId4 = new
+            FlightID(6, "Superman", "Superman","Superman","Superman", 1, 153.23, 30);
+
     public static final Flight testFlight1 = new Flight(
             1,
             147,
@@ -73,5 +76,13 @@ public class FlightUtils {
             "9/20/2021 - 1:45PM",
             150);
 
-
+    public static final Flight testFlight5 = new Flight(
+            6,
+            1,
+            153.23,
+            "Superman",
+            "Superman",
+            "Superman",
+            "Superman",
+            30);
 }
