@@ -1,3 +1,5 @@
+package dao;
+
 import models.Flight;
 import models.FlightID;
 import org.junit.Test;
@@ -55,6 +57,24 @@ public class FlightDaoTest {
         GetFlight getFlight = new GetFlight();
 
         List<Flight> actual = getFlight.getFlights(flightId);
+    }
+
+    /**
+     * Tests if the updateFlight method within the FlightDao successfully updates the given flight
+     */
+    @Test
+    public void testUpdateFlight() {
+        FlightID flightId = FlightUtils.testFlightId4;
+        FlightDao flightDao = new FlightDao();
+        flightDao.createFlight(flightId);
+        flightDao.updateFlight(flightId);
+
+        List<Flight> Actual = flightDao.getFlights(flightId);
+        Flight expected = FlightUtils.testFlight5;
+
+        for (Flight f: Actual) {
+            assertEquals(f, expected);
+        }
     }
 
 }
