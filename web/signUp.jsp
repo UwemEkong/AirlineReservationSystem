@@ -30,12 +30,12 @@
                 <input class="login-form-input" type="text" id="userName" name="userName"><br><br>
 
                 <label for="password">Password</label><br>
-                <input class="login-form-input" type="text" id="password" name="password"><br><br>
+                <input class="login-form-input" type="password" id="password" name="password"><br><br>
 
                 <label for="userName">Email</label><br>
                 <input class="login-form-input" type="text" id="email" name="email"><br><br>
 
-                <label for="password">Payment Method</label><br>
+                <label for="paymentMethod">Payment Method</label><br>
                 <input class="login-form-input" type="text" id="paymentMethod" name="paymentMethod"><br><br>
 
                 <button class="login-button" type="submit">Sign Up</button>

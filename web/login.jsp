@@ -24,7 +24,7 @@
                 <input class="login-form-input" type="text" id="userName" name="userName"><br><br>
 
                 <label for="password">Password</label><br>
-                <input class="login-form-input" type="text" id="password" name="password"><br><br>
+                <input class="login-form-input" type="password" id="password" name="password"><br><br>
 
                 <button class="login-button" type="submit">Login</button>
                 <a href="${pageContext.request.contextPath}/signUp.jsp"><button class="signup-button" type="button">Sign Up</button></a>

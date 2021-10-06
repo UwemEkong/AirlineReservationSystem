@@ -91,6 +91,7 @@ public class RegisterServlet extends HttpServlet {
 
         private void createNewUser (UserID userID){
             UserDao userDao = new UserDao();
+            userID.setPassword(Integer.toString(userID.getPassword().hashCode()));
             userDao.createUser(userID);
         }
     }

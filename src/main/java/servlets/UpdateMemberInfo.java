@@ -30,7 +30,7 @@ public class UpdateMemberInfo extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String userName = request.getParameter("userName");
-        String password = request.getParameter("password");
+        String password = Integer.toString(request.getParameter("password").hashCode());
         String email = request.getParameter("email");
         String paymentInfo = request.getParameter("paymentInfo");
         int userid = Integer.parseInt(request.getParameter("userId"));

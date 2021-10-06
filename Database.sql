@@ -53,12 +53,20 @@ INSERT INTO Flight VALUES ('3', '147', '200.0', 'Chicago, MDW', 'Las Vegas, LAS'
 INSERT INTO Flight VALUES ('4', '147', '185.0', 'Los Angeles, LAX', 'Chicago, ORD','9/21/2021 - 7:00AM', '9/18/2021 - 11:00PM','150');
 INSERT INTO Flight VALUES ('5', '147', '150.0', 'Chicago, ORD', 'Miami, MIA','9/18/2021 - 10:45AM', '9/18/2021 - 3:30PM','200');
 
-INSERT INTO User VALUES ('1', '**** **** **** 1234', 'adamLikesFlying1!','Adam', 'Chap', 'adam@fly.com', 'AdamFly', 'MEMBER');
-INSERT INTO User VALUES ('2', '**** **** **** 1235', 'uwemhatesFlying1!','Uwem', 'Ekong', 'uwem@fly.com', 'UwemFly', 'MEMBER');
-INSERT INTO User VALUES ('3', '**** **** **** 4234', 'mirskyLikesFlying1!','Dr.', 'Mirsky', 'mirsky@fly.com', 'MirskyFly', 'MEMBER');
-INSERT INTO User VALUES ('4', '**** **** **** 7432', 'nirajLikesFlying1!','Niraj', 'Patel', 'niraj@fly.com', 'NirajFly', 'MEMBER');
-INSERT INTO User VALUES ('5', '**** **** **** 5497', 'gilhatesFlying1!','Gil', 'Gurkirat', 'gil@fly.com', 'GilFly', 'MEMBER');
-INSERT INTO User VALUES ('6', '**** **** **** 5498', 'flyingAdmin!','Sally', 'Airplane', 'sally@fly.com', 'SallyAirportLady', 'ADMIN');
+INSERT INTO User VALUES ('1', '**** **** **** 1234', '-1608273556','Adam', 'Chap', 'adam@fly.com', 'AdamFly', 'MEMBER');
+INSERT INTO User VALUES ('2', '**** **** **** 1235', '662437374','Uwem', 'Ekong', 'uwem@fly.com', 'UwemFly', 'MEMBER');
+INSERT INTO User VALUES ('3', '**** **** **** 4234', '2102421360','Dr.', 'Mirsky', 'mirsky@fly.com', 'MirskyFly', 'MEMBER');
+INSERT INTO User VALUES ('4', '**** **** **** 7432', '1283624987','Niraj', 'Patel', 'niraj@fly.com', 'NirajFly', 'MEMBER');
+INSERT INTO User VALUES ('5', '**** **** **** 5497', '-1236563714','Gil', 'Gurkirat', 'gil@fly.com', 'GilFly', 'MEMBER');
+INSERT INTO User VALUES ('6', '**** **** **** 5498', '-2012365279','Sally', 'Airplane', 'sally@fly.com', 'SallyAirportLady', 'ADMIN');
+
+# PASSWORDS
+# adamLikesFlying1!
+# uwemhatesFlying1!
+# mirskyLikesFlying1!
+# nirajLikesFlying1!
+# gilhatesFlying1!
+# flyingAdmin!
 
 # INSERT INTO Trip VALUES ('1' , '1' , '1');
 # INSERT INTO Trip VALUES ('2' ,'2' , '1');
