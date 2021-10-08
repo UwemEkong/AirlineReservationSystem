@@ -7,41 +7,44 @@
 <body>
 <%@include file="header.jsp" %>
 <div class="container">
-<p1>Browse Flights</p1>
-<br><br><br><br>
-<p2>
-    You may browse flights here.
-    <br> Please enter query exactly as shown in the example.
-</p2>
-<br><br><br><br>
-<form action="${pageContext.request.contextPath}/browseFlights" method="get">
+    <p1>Browse Flights</p1>
+    <br><br><br><br>
+    <p2>
+        You may browse flights here.
+        <br> Please enter query exactly as shown in the example.
+    </p2>
+    <br><br><br><br>
+    <form action="${pageContext.request.contextPath}/browseFlights" method="get">
 
-    <label for="departureCity">Departure City: (EX: Chicago, ORD) </label>
-    <input type="text" id="departureCity" name="departureCity"><br><br><br>
+        <label for="departureCity">Departure City: (EX: Chicago, ORD) </label>
+        <input type="text" id="departureCity" name="departureCity"><br><br><br>
 
-    <label for="arrivalCity">Arrival City: (EX: San Francisco, SFO)</label>
-    <input type="text" id="arrivalCity" name="arrivalCity"><br><br><br>
+        <label for="arrivalCity">Arrival City: (EX: San Francisco, SFO)</label>
+        <input type="text" id="arrivalCity" name="arrivalCity"><br><br><br>
 
-    <label for="departureTime">Departure Time: (EX: 11/10/2021 - 2:00PM)</label>
-    <input type="text" id="departureTime" name="departureTime"><br><br><br>
+        <label for="departureTime">Departure Time: (EX: 11/10/2021 - 2:00PM)</label>
+        <input type="text" id="departureTime" name="departureTime"><br><br><br>
 
-    <label for="arrivalTime">Arrival time: (EX: 11/10/2021 - 7:00PM)</label>
-    <input type="text" id="arrivalTime" name="arrivalTime"><br><br><br>
+        <label for="arrivalTime">Arrival time: (EX: 11/10/2021 - 7:00PM)</label>
+        <input type="text" id="arrivalTime" name="arrivalTime"><br><br><br>
 
-    <input type="hidden" name="userID" value="${user.userID}"/>
-    <td>
-        <button type="submit" class="book-flight-btn">Browse Flights</button>
-    </td>
+        <c:if test="${sessionScope.user.userType == MemberUser}">
+            <input type="hidden" name="userID" value="${user.userID}"/>
+        </c:if>
 
-
-</form>
-
-<br>
-<br>
-<br>
+        <td>
+            <button type="submit" class="book-flight-btn">Browse Flights</button>
+        </td>
 
 
-<pre>
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+
+    <pre>
 
     Leave All Fields Blank To View All Available Flights
 
