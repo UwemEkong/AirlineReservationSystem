@@ -1,6 +1,7 @@
 package servlets;
 
 import dao.FlightDao;
+import dao.TripDao;
 import models.Flight;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -28,12 +29,52 @@ public class BrowseFlights extends HttpServlet {
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
 
-        List<Flight> resultFlights = browseFlights(departureCity, arrivalCity, departureTime, arrivalTime);
 
-        RequestDispatcher rd = request.getRequestDispatcher("showBrowseResults.jsp");
-        request.setAttribute("flights", resultFlights);
-        rd.forward(request, response);
+        if (request.getParameter("userID") == null) {
+
+            System.out.println("Guest BrowseList Shown");
+
+            List<Flight> resultFlights = browseFlights(departureCity, arrivalCity, departureTime, arrivalTime);
+            RequestDispatcher rd = request.getRequestDispatcher("showBrowseResults.jsp");
+            request.setAttribute("flights", resultFlights);
+            rd.forward(request, response);
+        } else {
+            int userID = Integer.parseInt(request.getParameter("userID"));
+            List<Flight> alreadyBookedTrips = listFlights(userID);
+
+            List<Flight> resultFlights = browseFlights(departureCity, arrivalCity, departureTime, arrivalTime);
+            List<Flight> notBookedFlights = new ArrayList<>();
+
+            for (int i = 0; i < resultFlights.size(); i++) {
+                boolean booked = false;
+                for (int j = 0; j < alreadyBookedTrips.size(); j++) {
+                    if (resultFlights.get(i).getFlightID() == alreadyBookedTrips.get(j).getFlightID()) {
+                        booked = true;
+                    }
+                }
+                if (!booked) {
+                    notBookedFlights.add(resultFlights.get(i));
+                }
+
+            }
+
+            System.out.println("User BrowseList Shown");
+
+            RequestDispatcher rd = request.getRequestDispatcher("showBrowseResults.jsp");
+            request.setAttribute("flights", notBookedFlights);
+            rd.forward(request, response);
+        }
+
+
     }
+
+
+    public static List<Flight> listFlights(int userID) {
+        TripDao dao = new TripDao();
+        List<Flight> flights = dao.getAllTrips(userID);
+        return flights;
+    }
+
 
     public List<Flight> browseFlights(String departureCity, String arrivalCity, String departureTime, String arrivalTime) {
         List<Flight> resultFlights = new ArrayList();
