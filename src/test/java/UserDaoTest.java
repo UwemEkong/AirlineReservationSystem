@@ -15,7 +15,7 @@ public class UserDaoTest {
     public void getUserTest() throws ClassNotFoundException, SQLException {
 
 
-        UserID test1 = new UserID("AdamFly", "adamLikesFlying1!");
+        UserID test1 = new UserID("AdamFly", Integer.toString("adamLikesFlying1!".hashCode()));
         User expected = new User();
         expected.setFirstName("Adam");
         expected.setLastName("Chap");

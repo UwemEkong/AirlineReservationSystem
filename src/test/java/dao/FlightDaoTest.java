@@ -64,17 +64,60 @@ public class FlightDaoTest {
      */
     @Test
     public void testUpdateFlight() {
-        FlightID flightId = FlightUtils.testFlightId4;
-        FlightDao flightDao = new FlightDao();
-        flightDao.createFlight(flightId);
-        flightDao.updateFlight(flightId);
+//        FlightID flightId = FlightUtils.testFlightId4;
+//        FlightDao flightDao = new FlightDao();
+//        flightDao.createFlight(flightId);
+//        flightDao.updateFlight(flightId);
+//
+//        List<Flight> Actual = flightDao.getFlights(flightId);
+//        Flight expected = FlightUtils.testFlight5;
+//
+//        for (Flight f: Actual) {
+//            assertEquals(expected, f);
+//        }
 
-        List<Flight> Actual = flightDao.getFlights(flightId);
-        Flight expected = FlightUtils.testFlight5;
+        FlightDao dao = new FlightDao();
+//'1', '**** **** **** 1234', 'adamLikesFlying1!','Adam', 'Chap', 'adam@fly.com', 'AdamFly', 'MEMBER'
+        //UserID user1 = new UserID("Adam", "adamLikesFlying1!",);
 
-        for (Flight f: Actual) {
-            assertEquals(f, expected);
-        }
+        Flight f = dao.getAllAvailableFlights().get(0);
+//      int id, String departureCity, String arrivalCity, String departureTime, String arrivalTime, int availableSeats, double price, int flightCapacity
+        FlightID flightid = new FlightID(1,f.getDepartureCity(),f.getArrivalCity(),f.getDepartureTime(),f.getArrivalTime(),f.getAvailableSeats(),f.getPrice(),f.getFlightCapacity());
+
+        flightid.setDepartureCity("Batman");
+        flightid.setArrivalCity("Batman");
+        flightid.setDepartureTime("Batman");
+        flightid.setArrivalTime("Batman");
+        flightid.setAvailableSeats(5);
+        flightid.setPrice(5);
+        flightid.setFlightCapacity(5);
+
+        dao.updateFlight(flightid);
+
+        Flight f2 = dao.getAllAvailableFlights().get(0);
+
+        FlightID checkFlight = new FlightID(1,f2.getDepartureCity(),f2.getArrivalCity(),f2.getDepartureTime(),f2.getArrivalTime(),f2.getAvailableSeats(),f2.getPrice(),f2.getFlightCapacity());
+
+        //f.getDepartureCity(),f.getArrivalCity(),f.getDepartureTime(),f.getArrivalTime(),f.getAvailableSeats(),f.getPrice(),f.getFlightCapacity()
+
+        assertEquals("Batman", checkFlight.getDepartureCity());
+        assertEquals("Batman", checkFlight.getArrivalCity());
+        assertEquals("Batman", checkFlight.getDepartureTime());
+        assertEquals("Batman", checkFlight.getArrivalTime());
+        assertEquals(5, checkFlight.getAvailableSeats(),0);
+        assertEquals(5, checkFlight.getPrice(),0);
+        assertEquals(5, checkFlight.getFlightCapacity(),0);
+
+        flightid.setDepartureCity(f.getDepartureCity());
+        flightid.setArrivalCity(f.getArrivalCity());
+        flightid.setDepartureTime(f.getDepartureTime());
+        flightid.setArrivalTime(f.getArrivalTime());
+        flightid.setAvailableSeats(f.getAvailableSeats());
+        flightid.setPrice(f.getPrice());
+        flightid.setFlightCapacity(f.getFlightCapacity());
+
+        dao.updateFlight(flightid);
+
     }
 
 }
