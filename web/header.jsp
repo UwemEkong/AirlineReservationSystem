@@ -14,18 +14,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./styles/BookFlightsStyles.css">
+    <link rel="stylesheet" href="./styles/HeaderStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <c:if test="${empty sessionScope.user.userType}" >
-    <div class="jumbotron">
-        <div class="container">
-            <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
+    <div class="jumbotron" id="header-container">
+        <div class="container nav-cont">
+            <h1 class="header-logo"><a href="welcomepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
         </div>
 
         <nav class="navbar">
-            <div class="container">
+            <div class="container navbar-list">
                 <ul class="nav navbar-nav navbar-right">
                     <a href="browseFlights.jsp" class="btn bg-white text-danger border-danger navbar-btn">Browse Flights</a>
                     <a href="aboutUs.jsp" class="btn bg-white text-danger border-danger navbar-btn">About US</a>
@@ -42,13 +45,13 @@
 <c:set var="MemberUser" value="MEMBER"/>
 
 <c:if test="${sessionScope.user.userType == MemberUser}" >
-    <div class="jumbotron">
-        <div class="container">
-            <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
+    <div class="jumbotron" id="header-container">
+        <div class="container nav-cont">
+            <h1 class="header-logo"><a href="welcomepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
         </div>
 
         <nav class="navbar">
-            <div class="container">
+            <div class="container navbar-list">
                 <ul class="nav navbar-nav navbar-right">
                     Welcome Back <b>${user.fullName}</b>
 
@@ -67,13 +70,13 @@
 </c:if>
 
 <c:if test="${sessionScope.user.userType == AdminUser}" >
-    <div class="jumbotron">
-        <div class="container">
-            <h1><span class="p-3 mb-2 bg-white text-dark">BenU </span><span class="text-danger">Airlines</span></h1>
+    <div class="jumbotron" id="header-container">
+        <div class="container nav-cont">
+            <h1 class="header-logo"><a href="welcomepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
         </div>
 
         <nav class="navbar">
-            <div class="container">
+            <div class="container navbar-list">
                 <ul class="nav navbar-nav navbar-right">
                     Welcome Back <b>${user.fullName}</b>
 

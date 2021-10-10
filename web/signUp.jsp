@@ -15,7 +15,7 @@
 <%@include file="header.jsp" %>
 <h1 class="login-header">Registration Form</h1>
 
-<div class="row">
+<div class="row" id="signup-form-row">
     <div class="signup-form-col" id="signup-form-container">
         <div class="error-register">${message}</div>
         <form class="login-form" action="${pageContext.request.contextPath}/register" method="post">
