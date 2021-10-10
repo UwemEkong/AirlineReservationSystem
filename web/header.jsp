@@ -24,7 +24,7 @@
 <c:if test="${empty sessionScope.user.userType}" >
     <div class="jumbotron" id="header-container">
         <div class="container nav-cont">
-            <h1 class="header-logo"><a href="homepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
+            <h1 class="header-logo"><a href="welcomepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
         </div>
 
         <nav class="navbar">
@@ -47,7 +47,7 @@
 <c:if test="${sessionScope.user.userType == MemberUser}" >
     <div class="jumbotron" id="header-container">
         <div class="container nav-cont">
-            <h1 class="header-logo"><a href="homepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
+            <h1 class="header-logo"><a href="welcomepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
         </div>
 
         <nav class="navbar">
@@ -72,7 +72,7 @@
 <c:if test="${sessionScope.user.userType == AdminUser}" >
     <div class="jumbotron" id="header-container">
         <div class="container nav-cont">
-            <h1 class="header-logo"><a href="homepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
+            <h1 class="header-logo"><a href="welcomepage.jsp" class="header-link"><span class="header-logo-benu">BenU</span><span class="header-logo-airlines">Airlines</span><img class="logo-image" src="images/logoimage.png"></a></h1>
         </div>
 
         <nav class="navbar">

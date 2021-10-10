@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         String destination = "";
 
         if (userIsValid(user)) {
-            destination = "homepage.jsp";
+            destination = "welcomepage.jsp";
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             System.out.print("correct");
