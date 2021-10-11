@@ -58,8 +58,6 @@ public class UserDao {
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
-            System.out.println("Inside userDAO");
-            System.out.println(userID.toString());
             String query = String.format("INSERT INTO Software.User (paymentInfo, password, firstName, lastName, email, userName, userType) " +
                             "VALUES ('%s', " +
                             "'%s', " +
