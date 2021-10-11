@@ -90,7 +90,6 @@ public class RegisterServlet extends HttpServlet {
     public boolean verifyRegistrationInfo(UserID userID) {
         String password = userID.getPassword();
         char[] pass = password.toCharArray();
-        StringBuilder sb = new StringBuilder();
         int digitCount = 0;
         int upperCaseCount = 0;
         int specialCount = 0;
@@ -118,11 +117,8 @@ public class RegisterServlet extends HttpServlet {
      * @param userID - the id of the user trying to register
      */
     private void createNewUser(UserID userID) {
-        System.out.println("Creating user");
-        System.out.println(userID.toString());
         UserDao userDao = new UserDao();
         userID.setPassword(Integer.toString(userID.getPassword().hashCode()));
         userDao.createUser(userID);
     }
 }
-

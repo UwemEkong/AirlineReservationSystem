@@ -21,19 +21,16 @@ public class LoginServlet extends HttpServlet {
         UserID userID = new UserID(userName, password);
 
         User user = getUser(userID);
-        System.out.println(user);
         String destination = "";
 
         if (userIsValid(user)) {
             destination = "welcomepage.jsp";
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            System.out.print("correct");
         } else {
             destination = "login.jsp";
             String message = "Incorrect username/password";
             request.setAttribute("message", message);
-            System.out.print("incorrect");
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(destination);

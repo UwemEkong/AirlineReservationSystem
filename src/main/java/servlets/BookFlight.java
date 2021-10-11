@@ -1,6 +1,5 @@
 package servlets;
 
-import dao.UserDao;
 import dao.TripDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -27,7 +26,6 @@ public class BookFlight extends HttpServlet {
         req = request;
         resp = response;
         TripDao tripDao = new TripDao();
-        UserDao userDao = new UserDao();
 
         int flightID = Integer.parseInt(request.getParameter("flightID1"));
         int userID = Integer.parseInt(request.getParameter("userID"));
