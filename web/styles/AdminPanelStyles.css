@@ -23,4 +23,40 @@
 
 #admin-panel-table {
    margin-left:0px;
+    width:100%;
+}
+
+.resize-table-input {
+    width:8rem;
+}
+
+.admin-table-users {
+    display:none;
+}
+
+.h1-admin-panel {
+    text-align:center;
+    color:#475868;
+    font-family: 'Inter', sans-serif;
+    font-size:6rem;
+    margin-bottom:3rem;
+}
+
+.edit-container {
+    text-align:center;
+    font-family: 'Inter', sans-serif;
+    font-size:2rem;
+}
+
+#edit-user-option {
+    cursor:pointer;
+    font-size:3rem;
+    margin-right:4rem;
+}
+
+#edit-flight-option {
+    cursor:pointer;
+    color:#BB042B;
+    text-decoration: underline;
+    font-size:3rem;
 }
