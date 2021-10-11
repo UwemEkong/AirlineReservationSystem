@@ -7,7 +7,7 @@
 <body>
 <%@include file="header.jsp" %>
 <div class="container-fluid">
-   <h1 class="h1-admin-panel">Admin Panel<img src="images/gearicon.png"></h1>
+    <h1 class="h1-admin-panel">Admin Panel<img src="images/gearicon.png"></h1>
     <div class="edit-container">
         <span id="edit-user-option" class="book-flight-btn" onclick="showUsersTable()">Edit Users</span>
         <span id="edit-flight-option" class="book-flight-btn" onclick="showFlightsTable()">Edit Flights</span>
@@ -68,9 +68,11 @@
                         <td><input type="text" name="arrivalCity" value="${flight.arrivalCity}"/></td>
                         <td><input type="text" name="departureTime" value="${flight.departureTime}"/></td>
                         <td><input type="text" name="arrivalTime" value="${flight.arrivalTime}"/></td>
-                        <td><input class="resize-table-input"  type="text" name="availableSeats" value="${flight.availableSeats}"/></td>
+                        <td><input class="resize-table-input" type="text" name="availableSeats"
+                                   value="${flight.availableSeats}"/></td>
                         <td><input class="resize-table-input" type="text" name="price" value="${flight.price}"/></td>
-                        <td><input class="resize-table-input" type="text" name="flightCapacity" value="${flight.flightCapacity}"/></td>
+                        <td><input class="resize-table-input" type="text" name="flightCapacity"
+                                   value="${flight.flightCapacity}"/></td>
                         <td>
                             <button type="submit" class="update-btn">Update</button>
                         </td>

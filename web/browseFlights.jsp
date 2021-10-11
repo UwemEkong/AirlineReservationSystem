@@ -10,8 +10,8 @@
     <p1>Browse Flights</p1>
     <br><br><br><br>
     <p2>
-        You may browse flights here.
-        <br> Please enter query exactly as shown in the example.
+        You may browse flights here. <br>
+        Please enter query exactly as shown in the example.
     </p2>
     <br><br><br><br>
     <form action="${pageContext.request.contextPath}/browseFlights" method="get">
@@ -36,13 +36,9 @@
             <button type="submit" class="book-flight-btn">Browse Flights</button>
         </td>
 
-
     </form>
 
-    <br>
-    <br>
-    <br>
-
+    <br><br><br>
 
     <pre>
 

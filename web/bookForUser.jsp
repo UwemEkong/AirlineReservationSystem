@@ -44,16 +44,15 @@
     </table>
     </c:if>
 
-
     <p1>
         Enter Flight ID  & User ID For Booking Request
     </p1>
     <br><br><br><br>
-<%--    <div class="error-booking">${message}</div>--%>
 
     <form action="${pageContext.request.contextPath}/bookFlightForUser" method="post">
 
-        <%--@declare id="idflight"--%><label for="idFlight">Flight ID</label>
+            <%--@declare id="idflight"--%>
+            <label for="idFlight">Flight ID</label>
             <td><input type="text" id="idlFlight" name="idFlight"><br><br><br></td>
             <label for="user">User ID</label>
             <td><input type="text" id="user" name="user"><br><br><br></td>

@@ -13,10 +13,9 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            /*margin: 4px 2px;*/
             transition-duration: 0.4s;
             cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
+            -webkit-transition-duration: 0.4s;
             transition-duration: 0.4s;
             border-radius: 10px;
         }
@@ -44,7 +43,6 @@
             <br> Booking a flight you have already booked will have no effect.
         </p2>
     </c:if>
-
 
     <br><br><br><br>
     <table class="table">
@@ -86,7 +84,6 @@
                         </form>
                     </c:if>
 
-
                 </c:if>
 
                 <c:if test="${not empty sessionScope.user.userID}">
@@ -107,7 +104,6 @@
                         </form>
 
                     </c:if>
-
 
                 </c:if>
 

@@ -7,56 +7,55 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    /*margin: 4px 2px;*/
     transition-duration: 0.4s;
     cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 .update-btn:hover {
     background-color: #f44336;
     color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 #admin-panel-table {
-   margin-left:0px;
-    width:100%;
+    margin-left: 0px;
+    width: 100%;
 }
 
 .resize-table-input {
-    width:8rem;
+    width: 8rem;
 }
 
 .admin-table-users {
-    display:none;
+    display: none;
 }
 
 .h1-admin-panel {
-    text-align:center;
-    color:#475868;
+    text-align: center;
+    color: #475868;
     font-family: 'Inter', sans-serif;
-    font-size:6rem;
-    margin-bottom:3rem;
+    font-size: 6rem;
+    margin-bottom: 3rem;
 }
 
 .edit-container {
-    text-align:center;
+    text-align: center;
     font-family: 'Inter', sans-serif;
-    font-size:2rem;
+    font-size: 2rem;
 }
 
 #edit-user-option {
-    cursor:pointer;
-    font-size:3rem;
-    margin-right:4rem;
+    cursor: pointer;
+    font-size: 3rem;
+    margin-right: 4rem;
 }
 
 #edit-flight-option {
-    cursor:pointer;
-    color:#BB042B;
+    cursor: pointer;
+    color: #BB042B;
     text-decoration: underline;
-    font-size:3rem;
+    font-size: 3rem;
 }

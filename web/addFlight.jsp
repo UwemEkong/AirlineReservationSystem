@@ -26,6 +26,7 @@
     <input type="text" id="arrivalTime" name="arrivalTime"><br><br><br>
 
     <button type="submit" class="book-flight-btn">Add Flight</button>
+
 </form>
 </c:if>
 </div>
