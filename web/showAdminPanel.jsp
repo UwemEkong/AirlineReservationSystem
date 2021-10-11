@@ -9,8 +9,8 @@
 <div class="container-fluid">
    <h1 class="h1-admin-panel">Admin Panel<img src="images/gearicon.png"></h1>
     <div class="edit-container">
-        <span id="edit-user-option" onclick="showUsersTable()">Edit Users</span>
-        <span id="edit-flight-option" onclick="showFlightsTable()">Edit Flights</span>
+        <span id="edit-user-option" class="book-flight-btn" onclick="showUsersTable()">Edit Users</span>
+        <span id="edit-flight-option" class="book-flight-btn" onclick="showFlightsTable()">Edit Flights</span>
     </div>
 
     <c:set var="AdminUser" value="ADMIN"/>
