@@ -24,6 +24,7 @@
 #admin-panel-table {
    margin-left:0px;
     width:100%;
+
 }
 
 .resize-table-input {
@@ -46,12 +47,14 @@
     text-align:center;
     font-family: 'Inter', sans-serif;
     font-size:2rem;
+
 }
 
 #edit-user-option {
     cursor:pointer;
     font-size:3rem;
     margin-right:4rem;
+
 }
 
 #edit-flight-option {
@@ -59,4 +62,5 @@
     color:#BB042B;
     text-decoration: underline;
     font-size:3rem;
+
 }

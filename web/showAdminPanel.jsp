@@ -33,7 +33,7 @@
                         <input type="hidden" name="userId" value="${user.userID}"/>
 
                         <td><input type="text" name="userName" value="${user.userName}"/></td>
-                        <td><input type="text" name="password" value="${user.password}"/></td>
+                        <td><input type="password" name="password" value="${user.password}"/></td>
                         <td><input type="text" name="paymentInfo" value="${user.paymentInfo}"/></td>
                         <td><input type="text" name="firstName" value="${user.firstName}"/></td>
                         <td><input type="text" name="lastName" value="${user.lastName}"/></td>
