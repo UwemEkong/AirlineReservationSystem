@@ -9,7 +9,7 @@ public class Trip {
     private int flightID;
     private int userID;
 
-    public Trip(int tripID, int flightID, int userID ) {
+    public Trip(int tripID, int flightID, int userID) {
         this.tripID = tripID;
         this.flightID = flightID;
         this.userID = userID;
@@ -17,12 +17,12 @@ public class Trip {
     }
 
     public Trip() {
-
     }
 
     public int getTripID() {
         return tripID;
     }
+
     public void setTripID(int tripID) {
         this.tripID = tripID;
     }
@@ -30,6 +30,7 @@ public class Trip {
     public int getFlightID() {
         return flightID;
     }
+
     public void setFlightID(int flightID) {
         this.flightID = flightID;
     }
@@ -37,13 +38,10 @@ public class Trip {
     public int getUserID() {
         return userID;
     }
+
     public void setUserID(int userID) {
         this.userID = userID;
     }
-
-
-
-
 
     @Override
     public String toString() {
@@ -59,6 +57,6 @@ public class Trip {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trip trip = (Trip) o;
-        return tripID == trip.tripID && flightID == trip.flightID &&  userID == trip.userID;
+        return tripID == trip.tripID && flightID == trip.flightID && userID == trip.userID;
     }
 }

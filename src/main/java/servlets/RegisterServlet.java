@@ -41,10 +41,22 @@ public class RegisterServlet extends HttpServlet {
 
     }
 
+    /**
+     * This method checks if the password during registration is invalid.
+     *
+     * @param userID - the id of the user
+     * @return boolean - true if the password is invalid
+     */
     public boolean checkInvalidPassword(UserID userID) {
         return userID.getPassword().length() < 8;
     }
 
+    /**
+     * This method checks if the username during registration already exists.
+     *
+     * @param username - the username desired by the user during registration
+     * @return boolean - true if the username already exists
+     */
     public boolean userExists(String username) {
         UserDao userDao = new UserDao();
         User user = userDao.findUserByUsername(username);
@@ -55,6 +67,12 @@ public class RegisterServlet extends HttpServlet {
         return false;
     }
 
+    /**
+     * This method checks if there is any missing data during the registration process.
+     *
+     * @param userID - the id of the user trying to register
+     * @return boolean - true if there is missing data
+     */
     public boolean checkMissingData(UserID userID) {
         if (userID.getUserName() == null || userID.getFirstName() == null || userID.getLastName() == null
                 || userID.getPassword() == null || userID.getEmail() == null || userID.getPaymentInfo() == null) {
@@ -62,39 +80,49 @@ public class RegisterServlet extends HttpServlet {
         }
         return false;
     }
-        public  boolean verifyRegistrationInfo (UserID userID){
 
-
-            String password = userID.getPassword();
-            char[] pass = password.toCharArray();
-            StringBuilder sb = new StringBuilder();
-            int digitCount = 0;
-            int upperCaseCount = 0;
-            int specialCount = 0;
-            for (char c : pass) {
-                if (Character.isDigit(c)) {
-                    digitCount++;
-                } else if (Character.isUpperCase(c)) {
-                    upperCaseCount++;
-                } else if (String.valueOf(c).matches("[^a-zA-Z0-9]")) {
-                    specialCount++;
-                }
+    /**
+     * This method verifies the registration info entered by the prospective member.
+     *
+     * @param userID - the id of the user trying to register
+     * @return boolean - true if registration info entered is all valid
+     */
+    public boolean verifyRegistrationInfo(UserID userID) {
+        String password = userID.getPassword();
+        char[] pass = password.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        int digitCount = 0;
+        int upperCaseCount = 0;
+        int specialCount = 0;
+        for (char c : pass) {
+            if (Character.isDigit(c)) {
+                digitCount++;
+            } else if (Character.isUpperCase(c)) {
+                upperCaseCount++;
+            } else if (String.valueOf(c).matches("[^a-zA-Z0-9]")) {
+                specialCount++;
             }
-
-            if (!checkInvalidPassword(userID) && !userExists(userID.getUserName()) && !checkMissingData(userID) && specialCount >= 1 && upperCaseCount >= 1 && digitCount >= 1) {
-                return true;
-            } else {
-                return false;
-            }
-
         }
 
-        private void createNewUser (UserID userID){
-            System.out.println("Creating user");
-            System.out.println(userID.toString());
-            UserDao userDao = new UserDao();
-            userID.setPassword(Integer.toString(userID.getPassword().hashCode()));
-            userDao.createUser(userID);
+        if (!checkInvalidPassword(userID) && !userExists(userID.getUserName()) && !checkMissingData(userID) && specialCount >= 1 && upperCaseCount >= 1 && digitCount >= 1) {
+            return true;
+        } else {
+            return false;
         }
+
     }
+
+    /**
+     * This method creates a new member.
+     *
+     * @param userID - the id of the user trying to register
+     */
+    private void createNewUser(UserID userID) {
+        System.out.println("Creating user");
+        System.out.println(userID.toString());
+        UserDao userDao = new UserDao();
+        userID.setPassword(Integer.toString(userID.getPassword().hashCode()));
+        userDao.createUser(userID);
+    }
+}
 

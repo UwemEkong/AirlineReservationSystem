@@ -24,12 +24,10 @@ public class AdminBookFlight extends HttpServlet {
         int userID = Integer.parseInt(request.getParameter("user"));
 
         TripID newTrip = new TripID(flightID, userID);
-        BookFlight.addTrip(newTrip,trips);
+        BookFlight.addTrip(newTrip, trips);
 
         RequestDispatcher rd = request.getRequestDispatcher("bookForUser.jsp");
         rd.forward(request, response);
     }
-
-
 
 }

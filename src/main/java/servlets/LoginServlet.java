@@ -46,7 +46,6 @@ public class LoginServlet extends HttpServlet {
 
     private User getUser(UserID userID) {
         UserDao userDao = new UserDao();
-
-       return userDao.getUser(userID);
+        return userDao.getUser(userID);
     }
 }

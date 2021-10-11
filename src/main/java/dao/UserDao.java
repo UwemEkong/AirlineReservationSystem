@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * The UserDao class is used to write queries to the 'Software' database. This class helps us separate our 'database logic' from our 'servlet logic'. Without this class, we would have to
  * put all of our queries and connections to the database inside the servlet class. By using the 'dao' (data access object) design pattern, we take advantage of loose coupling.
@@ -21,7 +20,7 @@ public class UserDao {
      * Validates the user's userName and Password by checking the database for a record that has the same username and password
      *
      * @param userID - userName and password of the user attempting to login
-     * @return User
+     * @return User - the user trying to login
      */
     public static User getUser(UserID userID) {
         User user = new User();
@@ -42,7 +41,6 @@ public class UserDao {
                 user.setUserType(rs.getString("userType"));
                 user.setFullName();
 
-
                 user.setFullName();
             }
         } catch (Exception e) {
@@ -55,7 +53,6 @@ public class UserDao {
      * Creates a new user record and adds it to the database if the user enters the correct registration information
      *
      * @param userID - userName and password of the user attempting to register
-     * @return User
      */
     public void createUser(UserID userID) {
         try {
@@ -80,7 +77,6 @@ public class UserDao {
 
             statement.executeUpdate(query);
 
-
         } catch (Exception e) {
 
         }
@@ -90,7 +86,7 @@ public class UserDao {
      * Searches the database for a specific user, given a username
      *
      * @param username - userName of the member attempting to register
-     * @return User
+     * @return User - the user being searched for
      */
     public User findUserByUsername(String username) {
         User user = new User();
@@ -114,7 +110,11 @@ public class UserDao {
         return user;
     }
 
-    // Gets a list of all users
+    /**
+     * The method gets all the users currently in the database.
+     *
+     * @return users - the list of users
+     */
     public List<User> getAllUsers() {
         List<User> users = new ArrayList();
 
@@ -142,6 +142,11 @@ public class UserDao {
         return users;
     }
 
+    /**
+     * The method updates a user's details.
+     *
+     * @param userid - the id of the user to be updated
+     */
     public void updateUser(UserID userID, int userid) {
         try {
             Connector.connect();
@@ -164,7 +169,6 @@ public class UserDao {
                     userid);
 
             statement.executeUpdate(query);
-
 
         } catch (Exception e) {
 

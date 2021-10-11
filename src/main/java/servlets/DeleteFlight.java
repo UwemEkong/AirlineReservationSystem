@@ -8,15 +8,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Flight;
-import models.FlightID;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * This servlet handles all GET and POST requests to the '/deleteFlight' endpoint
- * This servlet handles all GET and POST requests to the '/addFlight' endpoint
  */
 @WebServlet(urlPatterns = "/deleteFlight")
 public class DeleteFlight extends HttpServlet {
@@ -47,17 +44,20 @@ public class DeleteFlight extends HttpServlet {
         rd.forward(request, response);
     }
 
-    public static void deleteTheFlight(int id){
+    /**
+     * This method deletes the flight from the database.
+     *
+     * @param id - the id of the flight to delete from the database
+     */
+    public static void deleteTheFlight(int id) {
         FlightDao dao = new FlightDao();
         dao.deleteFlight(id);
-
     }
 
     /**
-     *
      * Helper function to retrieve the list of all available flights
      *
-     * @return List<Flight>
+     * @return List<Flight> - the list of all available flights
      */
     public static List<Flight> getFlights() {
         FlightDao dao = new FlightDao();

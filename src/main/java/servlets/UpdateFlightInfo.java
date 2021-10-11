@@ -1,4 +1,3 @@
-
 package servlets;
 
 import dao.FlightDao;
@@ -12,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import models.Flight;
 import models.FlightID;
 import models.User;
-import models.UserID;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,7 +34,7 @@ public class UpdateFlightInfo extends HttpServlet {
         int flightCapacity = Integer.parseInt(request.getParameter("flightCapacity"));
 
         FlightDao flightDao = new FlightDao();
-        FlightID flightID = new FlightID(id, departureCity,arrivalCity,departureTime,arrivalTime,availableSeats, price, flightCapacity);
+        FlightID flightID = new FlightID(id, departureCity, arrivalCity, departureTime, arrivalTime, availableSeats, price, flightCapacity);
 
         flightDao.updateFlight(flightID);
 

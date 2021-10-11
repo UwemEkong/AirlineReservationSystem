@@ -15,12 +15,10 @@ public class TripID {
 
     }
 
-
-
-
     public int getFlightID() {
         return flightID;
     }
+
     public void setFlightID(int flightID) {
         this.flightID = flightID;
     }
@@ -28,6 +26,7 @@ public class TripID {
     public int getUserID() {
         return userID;
     }
+
     public void setUserID(int userID) {
         this.userID = userID;
     }

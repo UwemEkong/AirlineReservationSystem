@@ -33,7 +33,12 @@ public class AddFlight extends HttpServlet {
 
     }
 
-    public static void createTheFlight(FlightID flightId){
+    /**
+     * This method adds a flight to the database.
+     *
+     * @param flightId - the id of the flight to add to the database
+     */
+    public static void createTheFlight(FlightID flightId) {
         FlightDao dao = new FlightDao();
         dao.createFlight(flightId);
     }
