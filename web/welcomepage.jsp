@@ -17,7 +17,7 @@
         <a class="get-started-link" href="${pageContext.request.contextPath}/browseFlights.jsp"><button class="get-started-btn" type="button"><img class="welcome-img-btn" src="images/welcomeIcon.png">Get Started</button></a>
     </div>
     <div class="image-col">
-        <img class="image-large" src="images/a2.jpg">
+        <img class="image-large" src="images/flightImage.jpg">
     </div>
 </div>
 </body>
