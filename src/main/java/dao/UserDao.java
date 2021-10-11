@@ -61,19 +61,22 @@ public class UserDao {
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
-
-            String query = String.format("INSERT INTO Software.User (paymentInfo, password, firstName, lastName, email, userName) " +
-                    "VALUES ('%s', " +
-                    "'%s', " +
-                    "'%s', " +
-                    "'%s', " +
-                    "'%s', " +
-                    "'%s')" , userID.getPaymentInfo(),
+            System.out.println("Inside userDAO");
+            System.out.println(userID.toString());
+            String query = String.format("INSERT INTO Software.User (paymentInfo, password, firstName, lastName, email, userName, userType) " +
+                            "VALUES ('%s', " +
+                            "'%s', " +
+                            "'%s', " +
+                            "'%s', " +
+                            "'%s', " +
+                            "'%s', " +
+                            "'%s')", userID.getPaymentInfo(),
                     userID.getPassword(),
                     userID.getFirstName(),
                     userID.getLastName(),
                     userID.getEmail(),
-                    userID.getUserName());
+                    userID.getUserName(),
+                    "MEMBER");
 
             statement.executeUpdate(query);
 
@@ -152,7 +155,7 @@ public class UserDao {
                             ", email = '%s'" +
                             ", userName = '%s' " +
                             "WHERE userID = '%s'"
-                             , userID.getPaymentInfo(),
+                    , userID.getPaymentInfo(),
                     userID.getPassword(),
                     userID.getFirstName(),
                     userID.getLastName(),
