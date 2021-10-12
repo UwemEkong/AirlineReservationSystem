@@ -2,6 +2,11 @@ package models;
 
 import java.util.Objects;
 
+/**
+ * Data model used to provide a Java representation of the 'user' table within our database.
+ * If we write a query to retrieve a record from the database,
+ * then the User class provides an easy way to represent the record that we just retrieved from our user table.
+ */
 public class User {
     private int userID;
     private String paymentInfo;
@@ -17,7 +22,7 @@ public class User {
     }
 
     public void setUserType(String userType) {
-        this.userType= userType;
+        this.userType = userType;
     }
 
     public String getFullName() {

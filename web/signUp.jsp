@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gur
-  Date: 9/20/21
-  Time: 12:36
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -39,7 +32,9 @@
                 <input class="login-form-input" type="text" id="paymentMethod" name="paymentMethod"><br><br>
 
                 <button class="login-button" type="submit">Sign Up</button>
-                <a href="${pageContext.request.contextPath}/login.jsp"><button class="signup-button" type="button">Login</button></a>
+                <a href="${pageContext.request.contextPath}/login.jsp">
+                    <button class="signup-button" type="button">Login</button>
+                </a>
             </div>
         </form>
     </div>

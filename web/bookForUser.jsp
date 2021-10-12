@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles/BookForUser.css">
-
 </head>
 <body>
 <%@include file="header.jsp" %>
@@ -24,11 +23,9 @@
         <th>Last Name</th>
         <th>Email</th>
 
-
         <c:forEach items="${users}" var="user">
         <tr>
             <td>${user.userID}</td>
-
 
                 <input type="hidden" name="userId" value="${user.userID}"/>
 
@@ -39,12 +36,10 @@
                 <td><input type="text" name="lastName" value="${user.lastName}" readonly/></td>
                 <td><input type="text" name="email" value="${user.email}" readonly/></td>
 
-
         </tr>
         </c:forEach>
     </table>
     </c:if>
-
 
     <p1>
         Enter Flight ID  & User ID For Booking Request
@@ -66,7 +61,6 @@
     <div class="error-booking">
         ${message}
     </div>
-
 
 </div>
 </body>

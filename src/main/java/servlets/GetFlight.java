@@ -37,8 +37,8 @@ public class GetFlight extends HttpServlet {
     /**
      * Retrieves a list of flights that match the user's input values
      *
-     * @param flightId - Form inputs taken from the browse flights form
-     * @return List<Flight>
+     * @param flightId - a flight ID that represents the form inputs taken from the browse flights form
+     * @return List<Flight> - the list of flights matching the browse
      */
     public List<Flight> getFlights(FlightID flightId) {
         FlightDao dao = new FlightDao();
@@ -54,6 +54,5 @@ public class GetFlight extends HttpServlet {
         }
         return flights;
     }
-
 
 }

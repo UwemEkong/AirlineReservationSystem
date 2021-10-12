@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -30,7 +31,13 @@ public class ShowMyBookedFlights extends HttpServlet {
 
     }
 
-    public static List<Flight> listFlights(int userID){
+    /**
+     * This method gets all the flights booked by a specific user.
+     *
+     * @param userID - the id of the user
+     * @return flights - the list of flights booked by the user
+     */
+    public static List<Flight> listFlights(int userID) {
         TripDao dao = new TripDao();
         List<Flight> flights = dao.getAllTrips(userID);
         return flights;

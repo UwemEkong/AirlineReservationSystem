@@ -67,23 +67,3 @@ INSERT INTO User VALUES ('6', '**** **** **** 5498', '-2012365279','Sally', 'Air
 # nirajLikesFlying1!
 # gilhatesFlying1!
 # flyingAdmin!
-
-# INSERT INTO Trip VALUES ('1' , '1' , '1');
-# INSERT INTO Trip VALUES ('2' ,'2' , '1');
-# INSERT INTO Trip VALUES ('3' ,'3' , '1');
-#
-# INSERT INTO Trip VALUES ('4' ,'2' , '2');
-# INSERT INTO Trip VALUES ('5' ,'3' , '2');
-# INSERT INTO Trip VALUES ('6' ,'4' , '2');
-#
-# INSERT INTO Trip VALUES ('7' ,'3' , '3');
-# INSERT INTO Trip VALUES ('8' ,'4' , '3');
-# INSERT INTO Trip VALUES ('9' ,'5' , '3');
-#
-# INSERT INTO Trip VALUES ('10' ,'4' , '4');
-# INSERT INTO Trip VALUES ('11' ,'5' , '4');
-# INSERT INTO Trip VALUES ('12' ,'1' , '4');
-#
-# INSERT INTO Trip VALUES ('13' ,'5' , '5');
-# INSERT INTO Trip VALUES ('14' ,'1' , '5');
-# INSERT INTO Trip VALUES ('15' ,'2' , '5');

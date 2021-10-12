@@ -1,14 +1,8 @@
 package dao;
 
-import jakarta.servlet.annotation.*;
- import jakarta.servlet.http.*;
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import models.Flight;
 import models.TripID;
-
+import jakarta.servlet.ServletException;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -27,8 +21,8 @@ public class TripDao {
     /**
      * The method gets all the trips of the specified user from the database.
      *
-     * @param userID the member's userID
-     * @return List<Flight> the list of the trips
+     * @param userID - the member's userID
+     * @return List<Flight> - the list of the trips
      * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
      */
     public List<Flight> getAllTrips(int userID) {
@@ -75,15 +69,14 @@ public class TripDao {
         return flights;
     }
 
-
     /**
      * The method adds a trip into the database. For clarification, this books a flight for the user.
      *
-     * @param tripId the trip to add
-     * @return updateSuccess the success of the 2 query updates (adding a trip, decrementing available seats)
+     * @param tripId - the trip to add
+     * @return updateSuccess - the success of the 2 query updates (adding a trip, decrementing available seats)
      * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
      */
-    public int addTrip(TripID tripId) throws ServletException, IOException {
+    public int addTrip(TripID tripId) {
 
         int updateSuccess = 0;
         int availableSeats;
@@ -110,14 +103,9 @@ public class TripDao {
 
             }
 
-
-
         } catch (Exception e) {
-//
-                 System.out.println(e);
-
+            System.out.println(e);
         }
-
 
         return updateSuccess;
     }
@@ -125,8 +113,8 @@ public class TripDao {
     /**
      * The method deletes a trip from the database. For clarification, this cancels a flight for the user.
      *
-     * @param tripId the trip to remove
-     * @return updateSuccess the success of the 2 query updates (deleting a trip, incrementing available seats)
+     * @param tripId - the trip to remove
+     * @return updateSuccess - the success of the 2 query updates (deleting a trip, incrementing available seats)
      * @see <a href="https://www.baeldung.com/java-dao-pattern">https://www.baeldung.com/java-dao-pattern</a>
      */
     public int deleteTrip(TripID tripId) {
@@ -144,7 +132,6 @@ public class TripDao {
                 query = String.format("UPDATE Software.Flight set AvailableSeats = AvailableSeats + 1 WHERE flightID = " + tripId.getFlightID());
                 updateSuccess += statement.executeUpdate(query);
             }
-
 
         } catch (Exception e) {
             System.out.println(e);

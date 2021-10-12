@@ -2,8 +2,6 @@ package dao;
 
 import models.Flight;
 import models.FlightID;
-import models.UserID;
-
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -52,7 +50,11 @@ public class FlightDao {
         return flights;
     }
 
-    //To create flights, currently available seats, price, and flight capacity are hard coded. Could be added to
+    /**
+     * This method creates a flight and adds it to the database.
+     *
+     * @param flightId - the id of the flight that will be created
+     */
     public void createFlight(FlightID flightId) {
 
         try {
@@ -75,18 +77,16 @@ public class FlightDao {
 
     }
 
-    // Will delete the flight with the given id
-
+    /**
+     * This method deletes the flight from the database.
+     *
+     * @param id - the id of the flight to delete from the database
+     */
     public void deleteFlight(int id) {
-
 
         try {
             Connector.connect();
             Statement statement = Connector.connection.createStatement();
-
-            //Have to delete any trips that have this flightID first
-            // or else it won't delete
-            //Error: Cannot delete or update a parent row: a foreign key constraint fails (`Software`.`Trip`, CONSTRAINT `Trip_ibfk_1` FOREIGN KEY (`flightID`) REFERENCES `Flight` (`flightID`))
 
             String query1 = String.format("DELETE FROM Software.Trip WHERE flightID = '%s';", id);
             statement.executeUpdate(query1);
@@ -100,7 +100,11 @@ public class FlightDao {
 
     }
 
-    // this gets a list of all the available flights
+    /**
+     * This method gets a list of all the currently available flights.
+     *
+     * @return List<Flight> - the list of flights
+     */
     public List<Flight> getAllAvailableFlights() {
         List<Flight> flights = new ArrayList();
 
@@ -129,7 +133,12 @@ public class FlightDao {
         return flights;
     }
 
-    public int getGreatestFlightID(){
+    /**
+     * This method gets the flightId of the most recently added flight.
+     *
+     * @return id - the id of the queried flight
+     */
+    public int getGreatestFlightID() {
 
         try {
             Connector.connect();
@@ -142,13 +151,18 @@ public class FlightDao {
 
             return rs.getInt(1);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 
         return -1;
     }
 
+    /**
+     * This method updates a flight's details.
+     *
+     * @param flightID - the id of the flight to update
+     */
     public void updateFlight(FlightID flightID) {
         try {
             Connector.connect();
@@ -172,7 +186,6 @@ public class FlightDao {
                     flightID.getFlightCapacity(),
                     flightID.getId());
             statement.executeUpdate(query);
-
 
         } catch (Exception e) {
 

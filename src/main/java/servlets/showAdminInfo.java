@@ -1,4 +1,3 @@
-
 package servlets;
 
 import dao.FlightDao;
@@ -35,14 +34,23 @@ public class showAdminInfo extends HttpServlet {
 
     }
 
-    public static List<User> listAllMembers(){
+    /**
+     * This method gets all the users.
+     *
+     * @return List<User> - the list of users
+     */
+    public static List<User> listAllMembers() {
         UserDao dao = new UserDao();
         return dao.getAllUsers();
     }
 
+    /**
+     * This method gets all the flights.
+     *
+     * @return List<Flight> - the list of flights
+     */
     public static List<Flight> listAllFlights() {
         FlightDao flightDao = new FlightDao();
         return flightDao.getAllAvailableFlights();
     }
-
 }

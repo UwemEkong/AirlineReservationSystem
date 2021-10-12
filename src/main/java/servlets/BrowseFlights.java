@@ -20,7 +20,6 @@ import java.util.List;
 @WebServlet(urlPatterns = "/browseFlights")
 public class BrowseFlights extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,10 +28,7 @@ public class BrowseFlights extends HttpServlet {
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
 
-
         if (request.getParameter("userID") == null) {
-
-            System.out.println("Guest BrowseList Shown");
 
             List<Flight> resultFlights = browseFlights(departureCity, arrivalCity, departureTime, arrivalTime);
             RequestDispatcher rd = request.getRequestDispatcher("showBrowseResults.jsp");
@@ -58,24 +54,34 @@ public class BrowseFlights extends HttpServlet {
 
             }
 
-            System.out.println("User BrowseList Shown");
-
             RequestDispatcher rd = request.getRequestDispatcher("showBrowseResults.jsp");
             request.setAttribute("flights", notBookedFlights);
             rd.forward(request, response);
         }
 
-
     }
 
-
+    /**
+     * This method gets all the flights booked by a specific user.
+     *
+     * @param userID - the id of the user
+     * @return flights - the list of flights booked by the user
+     */
     public static List<Flight> listFlights(int userID) {
         TripDao dao = new TripDao();
         List<Flight> flights = dao.getAllTrips(userID);
         return flights;
     }
 
-
+    /**
+     * This method gets the results of the browse.
+     *
+     * @param departureCity - the departure city
+     * @param arrivalCity   - the arrival city
+     * @param departureTime - the departure time
+     * @param arrivalTime   - the arrival time
+     * @return resultFlights - the list of flights matching the browse parameters
+     */
     public List<Flight> browseFlights(String departureCity, String arrivalCity, String departureTime, String arrivalTime) {
         List<Flight> resultFlights = new ArrayList();
 
@@ -84,16 +90,13 @@ public class BrowseFlights extends HttpServlet {
 
         // 4 Blanks
 
-        // 1
         if (departureCity.equals("") && arrivalCity.equals("") && departureTime.equals("") && arrivalTime.equals("")) {
             resultFlights = allFlights;
 
         }
 
-
         // 3 Blanks
 
-        // 2
         if (!departureCity.equals("") && arrivalCity.equals("") && departureTime.equals("") && arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity)) {
@@ -102,7 +105,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 3
         if (departureCity.equals("") && !arrivalCity.equals("") && departureTime.equals("") && arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getArrivalCity().equals(arrivalCity)) {
@@ -111,7 +113,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 4
         if (departureCity.equals("") && arrivalCity.equals("") && !departureTime.equals("") && arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureTime().equals(departureTime)) {
@@ -120,7 +121,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 5
         if (departureCity.equals("") && arrivalCity.equals("") && departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getArrivalTime().equals(arrivalTime)) {
@@ -131,7 +131,6 @@ public class BrowseFlights extends HttpServlet {
 
         // 2 Blanks
 
-        // 6
         if (!departureCity.equals("") && !arrivalCity.equals("") && departureTime.equals("") && arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity) && allFlights.get(i).getArrivalCity().equals(arrivalCity)) {
@@ -140,7 +139,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 7
         if (!departureCity.equals("") && arrivalCity.equals("") && !departureTime.equals("") && arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity) && allFlights.get(i).getDepartureTime().equals(departureTime)) {
@@ -149,7 +147,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 8
         if (!departureCity.equals("") && arrivalCity.equals("") && departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity) && allFlights.get(i).getArrivalTime().equals(arrivalTime)) {
@@ -158,7 +155,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 9
         if (departureCity.equals("") && !arrivalCity.equals("") && !departureTime.equals("") && arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getArrivalCity().equals(arrivalCity) && allFlights.get(i).getDepartureTime().equals(departureTime)) {
@@ -167,7 +163,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 10
         if (departureCity.equals("") && !arrivalCity.equals("") && departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getArrivalCity().equals(arrivalCity) && allFlights.get(i).getArrivalTime().equals(arrivalTime)) {
@@ -176,7 +171,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 11
         if (departureCity.equals("") && arrivalCity.equals("") && !departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureTime().equals(departureTime) && allFlights.get(i).getArrivalTime().equals(arrivalTime)) {
@@ -187,7 +181,6 @@ public class BrowseFlights extends HttpServlet {
 
         // 1 Blank
 
-        // 12
         if (departureCity.equals("") && !arrivalCity.equals("") && !departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getArrivalCity().equals(arrivalCity) &&
@@ -198,7 +191,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 13
         if (!departureCity.equals("") && arrivalCity.equals("") && !departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity) &&
@@ -209,7 +201,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 14
         if (!departureCity.equals("") && !arrivalCity.equals("") && departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity) &&
@@ -220,7 +211,6 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-        // 15
         if (!departureCity.equals("") && !arrivalCity.equals("") && !departureTime.equals("") && arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity) &&
@@ -233,7 +223,6 @@ public class BrowseFlights extends HttpServlet {
 
         // 0 Blanks
 
-        // 16
         if (!departureCity.equals("") && !arrivalCity.equals("") && !departureTime.equals("") && !arrivalTime.equals("")) {
             for (int i = 0; i < allFlights.size(); i++) {
                 if (allFlights.get(i).getDepartureCity().equals(departureCity) &&
@@ -245,10 +234,8 @@ public class BrowseFlights extends HttpServlet {
             }
         }
 
-
         return resultFlights;
 
     }
-
 
 }

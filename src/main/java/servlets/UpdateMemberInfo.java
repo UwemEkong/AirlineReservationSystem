@@ -1,4 +1,3 @@
-
 package servlets;
 
 import dao.FlightDao;
@@ -25,8 +24,6 @@ public class UpdateMemberInfo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        String firstName, String lastName, String userName, String password, String email, String paymentInfo
-
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String userName = request.getParameter("userName");
@@ -36,9 +33,9 @@ public class UpdateMemberInfo extends HttpServlet {
         int userid = Integer.parseInt(request.getParameter("userId"));
 
         UserDao dao = new UserDao();
-        UserID userID = new UserID(firstName,lastName,userName,password,email,paymentInfo);
+        UserID userID = new UserID(firstName, lastName, userName, password, email, paymentInfo);
 
-        dao.updateUser(userID,userid);
+        dao.updateUser(userID, userid);
 
         List<User> users = dao.getAllUsers();
         FlightDao flightDao = new FlightDao();
@@ -51,5 +48,4 @@ public class UpdateMemberInfo extends HttpServlet {
         rd.forward(request, response);
 
     }
-
 }
