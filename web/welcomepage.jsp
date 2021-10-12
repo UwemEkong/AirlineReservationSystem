@@ -16,11 +16,23 @@
                 class="welcome-img-header" src="images/welcomeIcon.png"></h1>
         <p class="welcome-paragraph">We ensure that all of your travel needs are taken care of by simplifying the flight
             booking process.</p>
-        <a class="get-started-link" href="${pageContext.request.contextPath}/browseFlights.jsp">
-            <button class="get-started-btn" type="button"><img class="welcome-img-btn" src="images/welcomeIcon.png">Get
-                Started
-            </button>
-        </a>
+
+        <c:if test="${sessionScope.user.userType == AdminUser}">
+            <a class="get-started-link" href="${pageContext.request.contextPath}/showAdminInfo">
+                <button class="get-started-btn" type="button"><img class="welcome-img-btn" src="images/welcomeIcon.png">Get
+                    Started
+                </button>
+            </a>
+        </c:if>
+
+        <c:if test="${sessionScope.user.userType != AdminUser}">
+            <a class="get-started-link" href="${pageContext.request.contextPath}/browseFlights.jsp">
+                <button class="get-started-btn" type="button"><img class="welcome-img-btn" src="images/welcomeIcon.png">Get
+                    Started
+                </button>
+            </a>
+        </c:if>
+
     </div>
     <div class="image-col">
         <img class="image-large" src="images/flightImage.jpg">

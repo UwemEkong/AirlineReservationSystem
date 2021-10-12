@@ -47,7 +47,7 @@
     <br><br><br><br>
 <%--    <div class="error-booking">${message}</div>--%>
     <div class="form-book">
-    <form class="border" action="${pageContext.request.contextPath}/bookFlight" method="post">
+    <form class="border" action="${pageContext.request.contextPath}/bookFlightForUser" method="post">
 
         <%--@declare id="idflight"--%><label for="idFlight">Flight ID</label>
             <td><input type="text" id="flightID1" name="flightID1"><br><br><br></td>
