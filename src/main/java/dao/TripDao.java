@@ -113,7 +113,7 @@ public class TripDao {
 
 
         } catch (Exception e) {
-//            throw new ServletException();
+//
                  System.out.println(e);
 
         }
